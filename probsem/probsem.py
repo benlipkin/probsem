@@ -2,6 +2,7 @@ import typing
 
 import numpy as np
 import numpy.typing as npt
+from tqdm import tqdm
 
 from probsem.abstract import Object
 from probsem.models import Model
@@ -36,7 +37,8 @@ class ProbSem(Object):
     def evaluate(self, mode: str) -> npt.NDArray[np.float64]:
         assert mode in ["prior", "likelihood"]
         weights = np.zeros(len(self.programs))
-        for i, program in enumerate(self.programs):
+        self.info(f"Evaluating {mode}...")
+        for i, program in tqdm(enumerate(self.programs), total=len(self.programs)):
             if mode == "prior":
                 full_text = "\n".join([self.prompt.generator, self.query, program])
                 weights[i] = self._model.score(full_text, program)
@@ -47,12 +49,13 @@ class ProbSem(Object):
                 raise ValueError(f"Unknown mode: {mode}")
         return weights
 
-    def marginalize(self, weights: npt.NDArray[np.float64]) -> npt.NDArray[np.float64]:
-        return np.exp(weights) / np.sum(np.exp(weights))
+    def normalize(self, weights: npt.NDArray[np.float64]) -> npt.NDArray[np.float64]:
+        marginal = np.sum(np.exp(weights))
+        return np.exp(weights) / marginal
 
     def run(self) -> None:
         prior = self.evaluate("prior")
         likelihood = self.evaluate("likelihood")
         posterior_weights = prior + likelihood
-        posterior_probs = self.marginalize(posterior_weights)
+        posterior_probs = self.normalize(posterior_weights)
         self.info(pretty_print(self.query, self.programs, posterior_probs))
