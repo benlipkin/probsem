@@ -1,4 +1,5 @@
 import typing
+import warnings
 
 import numpy as np
 import torch
@@ -11,17 +12,20 @@ class Model(Object):
     def __init__(self, model_id: str) -> None:
         super().__init__()
         self._id = model_id
+        self.info(f"Attempting to load {self._id} model...")
         try:
             self._config = CodeGenConfig.from_pretrained(self._id)
             self._tokenizer = CodeGenTokenizer.from_pretrained(self._id)
-            self._model = CodeGenForCausalLM.from_pretrained(self._id)
+            self._model = CodeGenForCausalLM.from_pretrained(
+                self._id, torch_dtype=torch.float32
+            )
             self._model.eval()
         except Exception as invalid_id:
             raise ValueError(
                 "model must be valid HuggingFace CodeGenCausalLM."
             ) from invalid_id
         self._set_torch_device()
-        self.info(f"Loaded pretrained {self._id} model on {self._device}.")
+        self.info(f"Successfully loaded pretrained {self._id} model on {self._device}.")
 
     def _set_torch_device(self) -> None:
         if torch.cuda.is_available():
@@ -32,10 +36,11 @@ class Model(Object):
                 return
             except RuntimeError:
                 self._device = torch.device("cpu")
-                torch.set_default_tensor_type(torch.FloatTensor)  # type: ignore
+                torch.set_default_tensor_type(torch.FloatTensor)
                 self._model = self._model.to(self._device)
         else:
             self._device = torch.device("cpu")
+            torch.set_default_tensor_type(torch.FloatTensor)
             self._model = self._model.to(self._device)
 
     def _tokenize(self, text: str) -> typing.Dict[str, torch.Tensor]:
@@ -48,7 +53,9 @@ class Model(Object):
             inputs = self._tokenize(full_text)
             n_eval = self._tokenize(eval_text)["input_ids"].shape[1]
             tokens = inputs["input_ids"]
-            outputs = self._model(**inputs, labels=tokens)
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                outputs = self._model(**inputs, labels=tokens)
             loss = torch.nn.CrossEntropyLoss(reduction="none")(
                 outputs.logits[..., :-1, :]
                 .contiguous()

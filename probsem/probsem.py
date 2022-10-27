@@ -50,8 +50,9 @@ class ProbSem(Object):
         return weights
 
     def normalize(self, weights: npt.NDArray[np.float64]) -> npt.NDArray[np.float64]:
-        marginal = np.sum(np.exp(weights))
-        return np.exp(weights) / marginal
+        probs = np.exp(weights)
+        marginal = np.sum(probs)
+        return probs / marginal
 
     def run(self) -> None:
         prior = self.evaluate("prior")
