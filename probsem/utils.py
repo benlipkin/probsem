@@ -1,9 +1,12 @@
+import typing
+
 import numpy as np
+import numpy.typing as npt
 
-from probsem.wrappers import TestSample
 
-
-def pretty_print(query: str, programs: list, probs: np.ndarray) -> None:
+def pretty_print(
+    query: str, programs: typing.List[str], probs: npt.NDArray[np.float64]
+) -> str:
     assert len(programs) == len(probs)
     ostream = []
     ostream.append(f"Query:\t{query}")

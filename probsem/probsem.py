@@ -1,4 +1,7 @@
+import typing
+
 import numpy as np
+import numpy.typing as npt
 
 from probsem.abstract import Object
 from probsem.models import Model
@@ -27,24 +30,24 @@ class ProbSem(Object):
         return self._sample.query
 
     @property
-    def programs(self) -> list:
+    def programs(self) -> typing.List[str]:
         return self._sample.programs
 
-    def evaluate(self, mode: str) -> np.ndarray:
+    def evaluate(self, mode: str) -> npt.NDArray[np.float64]:
         assert mode in ["prior", "likelihood"]
         weights = np.zeros(len(self.programs))
-        for i, eval in enumerate(self.programs):
+        for i, program in enumerate(self.programs):
             if mode == "prior":
-                input = "\n".join([self.prompt.generator, self.query, eval])
-                weights[i] = self._model.score(input, eval)
+                full_text = "\n".join([self.prompt.generator, self.query, program])
+                weights[i] = self._model.score(full_text, program)
             elif mode == "likelihood":
-                input = "\n".join([self.prompt.summarizer, eval, self.query])
-                weights[i] = self._model.score(input, self.query)
+                full_text = "\n".join([self.prompt.summarizer, program, self.query])
+                weights[i] = self._model.score(full_text, self.query)
             else:
                 raise ValueError(f"Unknown mode: {mode}")
         return weights
 
-    def marginalize(self, weights: np.ndarray) -> np.ndarray:
+    def marginalize(self, weights: npt.NDArray[np.float64]) -> npt.NDArray[np.float64]:
         return np.exp(weights) / np.sum(np.exp(weights))
 
     def run(self) -> None:
