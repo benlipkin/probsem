@@ -39,7 +39,7 @@ class Model(Object):
     def _tokenize(self, text: str) -> torch.Tensor:
         return self._tokenizer(text, return_tensors="pt").to(self._device)
 
-    def score(self, input: str, eval: str) -> float:
+    def score(self, input: str, eval: str, normalize: bool = False) -> float:
         with torch.no_grad():
             inputs = self._tokenize(input)
             n_eval = self._tokenize(eval)["input_ids"].shape[1]
@@ -53,6 +53,7 @@ class Model(Object):
             ).view(tokens.size(0), tokens.size(-1) - 1)
             loss = loss * inputs["attention_mask"][..., 1:].contiguous()
             loss = loss[:, -n_eval:].sum(dim=1)
-            loss -= np.log(n_eval)
-            normlogp = -loss.cpu().detach().item()
-        return normlogp
+            if normalize:
+                loss -= np.log(n_eval)
+            logp = -loss.cpu().detach().item()
+        return logp

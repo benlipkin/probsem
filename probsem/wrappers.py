@@ -7,13 +7,24 @@ from probsem.abstract import Object
 class Prompt(Object):
     def __init__(self, prompt: str) -> None:
         super().__init__()
-        prompt_file = pathlib.Path(__file__).parents[1] / "inputs" / f"{prompt}.txt"
+        self._gen_prompt = self._load_prompt(prompt, "gen")
+        self._sum_prompt = self._load_prompt(prompt, "sum")
+
+    @staticmethod
+    def _load_prompt(prompt: str, version: str) -> str:
+        prompt_file = (
+            pathlib.Path(__file__).parents[1] / "inputs" / f"{prompt}_{version}.txt"
+        )
         with open(prompt_file, "r") as f:
-            self._prompt = f.read()
+            return f.read()
 
     @property
-    def text(self) -> str:
-        return self._prompt
+    def generator(self) -> str:
+        return self._gen_prompt
+
+    @property
+    def summarizer(self) -> str:
+        return self._sum_prompt
 
 
 class TestSample(Object):

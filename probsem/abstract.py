@@ -12,8 +12,13 @@ class Object(abc.ABC):
 
     def _log(self, message: str, level: str, offset: int) -> None:
         assert hasattr(self._logger, level)
-        formatted = f"{' ' * (offset - len(self._name))}{message}"
-        getattr(self._logger, level)(formatted)
+        if "\n" in message:
+            message = message.split("\n")
+        else:
+            message = [message]
+        for line in message:
+            formatted = f"{' ' * (offset - len(self._name))}{line}"
+            getattr(self._logger, level)(formatted)
 
     def info(self, message: str) -> None:
         self._log(message, "info", 20)
