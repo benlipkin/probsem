@@ -1,0 +1,9 @@
+{
+    "query": ";; Condition: Josh beat Cathy during the first match of the day.",
+    "programs": [
+        "(condition (won-against '(josh) '(cathy)))",
+        "(condition (won-against '(cathy) '(josh)))",
+        "(condition ('(josh) '(cathy) won-against))",
+        "(condition ('(cathy) '(josh) won-against))"
+    ]
+}
