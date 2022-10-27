@@ -1,3 +1,5 @@
+[![Tests](https://github.com/benlipkin/probsem/actions/workflows/testing.yml/badge.svg)](https://github.com/benlipkin/probsem/actions/workflows/testing.yml)
+
 # ProbSem
 
 ## Summary
