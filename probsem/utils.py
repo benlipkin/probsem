@@ -13,4 +13,5 @@ def pretty_print(
     for i, (program, prob) in enumerate(zip(programs, probs)):
         ostream.append(f"Program {i + 1}:\t{program}")
         ostream.append(f"Probability:\t{prob}")
+    ostream.append(f"MAP Program:\t{programs[np.argmax(probs)]}")
     return "\n".join(ostream)
