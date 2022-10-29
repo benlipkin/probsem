@@ -3,7 +3,8 @@ import warnings
 
 import numpy as np
 import torch
-from transformers import CodeGenConfig, CodeGenTokenizer, CodeGenForCausalLM
+
+from transformers import AutoConfig, AutoTokenizer, AutoModelForCausalLM
 
 from probsem.abstract import Object
 
@@ -14,15 +15,15 @@ class Model(Object):
         self._id = model_id
         self.info(f"Attempting to load {self._id} model...")
         try:
-            self._config = CodeGenConfig.from_pretrained(self._id)
-            self._tokenizer = CodeGenTokenizer.from_pretrained(self._id)
-            self._model = CodeGenForCausalLM.from_pretrained(
-                self._id, torch_dtype=torch.float32
+            self._config = AutoConfig.from_pretrained(self._id)
+            self._tokenizer = AutoTokenizer.from_pretrained(self._id)
+            self._model = AutoModelForCausalLM.from_pretrained(
+                self._id, torch_dtype=torch.float32, low_cpu_mem_usage=True
             )
             self._model.eval()
         except Exception as invalid_id:
             raise ValueError(
-                "model must be valid HuggingFace CodeGenCausalLM."
+                "model must be valid HuggingFace CausalLM."
             ) from invalid_id
         self._set_torch_device()
         self.info(f"Successfully loaded pretrained {self._id} model on {self._device}.")
@@ -47,24 +48,28 @@ class Model(Object):
         return self._tokenizer(text, return_tensors="pt").to(self._device)
 
     def score(
-        self, full_text: str, eval_text: str, normalize: bool = False
+        self,
+        full_text: str,
+        eval_text: str,
+        normalize: bool = True,
+        temperature: float = 1.0,
     ) -> np.float64:
         with torch.no_grad():
             inputs = self._tokenize(full_text)
             n_eval = self._tokenize(eval_text)["input_ids"].shape[1]
             tokens = inputs["input_ids"]
+            mask = inputs["attention_mask"]
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore")
-                outputs = self._model(**inputs, labels=tokens)
+                outputs = self._model(input_ids=tokens, attention_mask=mask)
             loss = torch.nn.CrossEntropyLoss(reduction="none")(
                 outputs.logits[..., :-1, :]
                 .contiguous()
                 .view(-1, outputs.logits.size(-1)),
                 tokens[..., 1:].contiguous().view(-1),
             ).view(tokens.size(0), tokens.size(-1) - 1)
-            loss = loss * inputs["attention_mask"][..., 1:].contiguous()
+            loss = loss * mask[..., 1:].contiguous()
             loss = loss[:, -n_eval:].sum(dim=1)
             if normalize:
-                loss -= np.log(n_eval)
-            logp = -loss.cpu().detach().item()
-        return logp
+                loss /= n_eval
+            return -loss.cpu().detach().item() / temperature
