@@ -9,16 +9,14 @@ def normalize(weights: npt.NDArray[np.float64]) -> npt.NDArray[np.float64]:
 
 
 def pretty_print(
-    query: str, programs: typing.List[str], results: npt.NDArray[np.float64], mode: str
+    query: str, programs: typing.List[str], logits: npt.NDArray[np.float64], mode: str
 ) -> str:
-    assert len(programs) == len(results)
+    assert len(programs) == len(logits)
     ostream = []
     ostream.append(f"Query:\t{query}")
-    for i, (program, logit, prob) in enumerate(
-        zip(programs, results, normalize(results))
-    ):
+    for i, (program, prob) in enumerate(zip(programs, normalize(logits))):
         ostream.append(f"Program {i + 1}:\t{program}")
-        ostream.append(f"{mode.title()}:\t{prob:.3f} ({logit:.3f})")
+        ostream.append(f"{mode.title()}:\tp={prob:.2f}")
     if mode == "posterior":
-        ostream.append(f"MAP Program:\t{programs[np.argmax(results)]}")
-    return "\n".join(ostream + [""])
+        ostream.append(f"MAP Program:\t{programs[np.argmax(logits)]}")
+    return "\n".join([30 * "_"] + ostream + [30 * "_"])
