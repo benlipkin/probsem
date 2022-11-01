@@ -90,12 +90,12 @@ class Model(Object):
             tokens = inputs["input_ids"]
             mask = inputs["attention_mask"]
             context_length = len(self._decode_text(tokens[0]))
+            if greedy:
+                kwargs = {"do_sample": False}
+            else:
+                kwargs = {"do_sample": True}
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore")
-                if greedy:
-                    kwargs = {"do_sample": False}
-                else:
-                    kwargs = {"do_sample": True}
                 outputs = self._model.generate(
                     input_ids=tokens,
                     attention_mask=mask,
@@ -103,6 +103,6 @@ class Model(Object):
                     num_return_sequences=1,
                     **kwargs,
                 )
-                generated = self._decode_text(outputs[0])
-                program = strip_program(generated[context_length:])
-                return program
+            generated = self._decode_text(outputs[0])
+            program = strip_program(generated[context_length:])
+            return program
