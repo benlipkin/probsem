@@ -20,6 +20,8 @@ def detokenize(text: str) -> str:
 
 def strip_program(program: str) -> str:
     program = program.strip()
+    if not program.startswith("("):
+        return f"INVALID: {program}"
     count = 0
     for i, char in enumerate(program):
         if char == "(":
@@ -28,7 +30,7 @@ def strip_program(program: str) -> str:
             count -= 1
         if count == 0:
             return program[: i + 1]
-    return "INVALID PROGRAM"
+    return f"INVALID: {program}"
 
 
 def normalize(weights: npt.NDArray[np.float64]) -> npt.NDArray[np.float64]:

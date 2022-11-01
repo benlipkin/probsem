@@ -1,0 +1,7 @@
+{
+    "query": "; reverse a list in one line using lisp",
+    "programs": [
+        "(reverse '(1 2 3))",
+        "(apply '+ '(1 2 3))"
+    ]
+}

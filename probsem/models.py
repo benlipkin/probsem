@@ -84,7 +84,7 @@ class Model(Object):
                 loss /= n_eval
             return -loss.cpu().detach().item() / temperature
 
-    def generate(self, context: str = "", greedy: bool = True) -> str:
+    def generate(self, context: str = "", greedy: bool = False) -> str:
         with torch.no_grad():
             inputs = self._encode_text(context)
             tokens = inputs["input_ids"]
@@ -99,6 +99,7 @@ class Model(Object):
                 outputs = self._model.generate(
                     input_ids=tokens,
                     attention_mask=mask,
+                    pad_token_id=self._tokenizer.eos_token_id,
                     max_new_tokens=32,
                     num_return_sequences=1,
                     **kwargs,
