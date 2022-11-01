@@ -34,6 +34,20 @@ class TestSample(Object):
         sample_file = pathlib.Path(__file__).parents[1] / "inputs" / f"{sample}.json"
         with open(sample_file, "r", encoding="utf-8") as fstream:
             self._sample = json.loads(fstream.read())
+        assert "query" in self._sample.keys()
+        if not ("programs" in self._sample.keys() or "samples" in self._sample.keys()):
+            raise RuntimeError(
+                'Test sample must specify "programs" or number of "samples".'
+            )
+        if "samples" in self._sample.keys():
+            assert isinstance(self._sample["samples"], int)
+            assert self._sample["samples"] > 0
+            self._sample["programs"] = []
+        else:
+            assert "programs" in self._sample.keys()
+            assert isinstance(self._sample["programs"], list)
+            assert len(self._sample["programs"]) > 0
+            self._sample["samples"] = 0
 
     @property
     def query(self) -> str:
@@ -42,3 +56,10 @@ class TestSample(Object):
     @property
     def programs(self) -> typing.List[str]:
         return self._sample["programs"]
+
+    @property
+    def samples(self) -> int:
+        return self._sample["samples"]
+
+    def add_program(self, program: str) -> None:
+        self._sample["programs"].append(program)

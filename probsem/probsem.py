@@ -21,6 +21,9 @@ class ProbSem(Object):
         self._prompt = Prompt(prompt)
         self._sample = TestSample(sample)
         self._model = Model(model)
+        if len(self.programs) == 0:
+            self._generate_programs()
+        assert len(self.programs) > 0
 
     @property
     def generator(self) -> str:
@@ -41,6 +44,16 @@ class ProbSem(Object):
     @property
     def model(self) -> Model:
         return self._model
+
+    def _generate_programs(self) -> None:
+        self.info("Generating programs...")
+        context = "\n".join([self.generator, self.query, ""])
+        for i in tqdm(list(range(self._sample.samples))):
+            if not i:
+                program = self.model.generate(context, greedy=True)
+            else:
+                program = self._model.generate(context)
+            self._sample.add_program(program)
 
     def evaluate(self, mode: str) -> npt.NDArray[np.float64]:
         weights = np.zeros(len(self.programs))

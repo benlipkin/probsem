@@ -1,3 +1,4 @@
+import functools
 import typing
 import warnings
 
@@ -7,6 +8,7 @@ import torch
 from transformers import AutoConfig, AutoTokenizer, AutoModelForCausalLM
 
 from probsem.abstract import Object
+from probsem.utils import tokenize, detokenize, strip_program
 
 
 class Model(Object):
@@ -16,7 +18,9 @@ class Model(Object):
         self.info(f"Attempting to load {self._id} model...")
         try:
             self._config = AutoConfig.from_pretrained(self._id)
-            self._tokenizer = AutoTokenizer.from_pretrained(self._id)
+            self._tokenizer = AutoTokenizer.from_pretrained(
+                self._id, add_prefix_space=True
+            )
             self._model = AutoModelForCausalLM.from_pretrained(
                 self._id, torch_dtype=torch.float32, low_cpu_mem_usage=True
             )
@@ -44,8 +48,14 @@ class Model(Object):
             torch.set_default_tensor_type(torch.FloatTensor)
             self._model = self._model.to(self._device)
 
-    def _tokenize(self, text: str) -> typing.Dict[str, torch.Tensor]:
-        return self._tokenizer(text, return_tensors="pt").to(self._device)
+    @functools.lru_cache(maxsize=128)
+    def _encode_text(self, text: str) -> typing.Dict[str, torch.Tensor]:
+        return self._tokenizer(
+            tokenize(text), is_split_into_words=True, return_tensors="pt"
+        ).to(self._device)
+
+    def _decode_text(self, tokens: torch.Tensor) -> str:
+        return detokenize(self._tokenizer.decode(tokens, skip_special_tokens=True))
 
     def score(
         self,
@@ -55,8 +65,8 @@ class Model(Object):
         temperature: float = 1.0,
     ) -> np.float64:
         with torch.no_grad():
-            inputs = self._tokenize(full_text)
-            n_eval = self._tokenize(eval_text)["input_ids"].shape[1]
+            inputs = self._encode_text(full_text)
+            n_eval = self._encode_text(eval_text)["input_ids"].shape[1]
             tokens = inputs["input_ids"]
             mask = inputs["attention_mask"]
             with warnings.catch_warnings():
@@ -73,3 +83,26 @@ class Model(Object):
             if normalize:
                 loss /= n_eval
             return -loss.cpu().detach().item() / temperature
+
+    def generate(self, context: str = "", greedy: bool = True) -> str:
+        with torch.no_grad():
+            inputs = self._encode_text(context)
+            tokens = inputs["input_ids"]
+            mask = inputs["attention_mask"]
+            context_length = len(self._decode_text(tokens[0]))
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                if greedy:
+                    kwargs = {"do_sample": False}
+                else:
+                    kwargs = {"do_sample": True}
+                outputs = self._model.generate(
+                    input_ids=tokens,
+                    attention_mask=mask,
+                    max_new_tokens=32,
+                    num_return_sequences=1,
+                    **kwargs,
+                )
+                generated = self._decode_text(outputs[0])
+                program = strip_program(generated[context_length:])
+                return program
