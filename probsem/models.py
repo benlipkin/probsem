@@ -91,7 +91,12 @@ class Model(Object):
             mask = inputs["attention_mask"]
             context_length = len(self._decode_text(tokens[0]))
             if sample:
-                kwargs = {"do_sample": True}
+                kwargs = {
+                    "do_sample": True,
+                    "top_k": 10,
+                    "top_p": 0.50,
+                    "temperature": 0.5,
+                }
             else:
                 kwargs = {"do_sample": False}
             with warnings.catch_warnings():
