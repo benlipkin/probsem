@@ -84,16 +84,16 @@ class Model(Object):
                 loss /= n_eval
             return -loss.cpu().detach().item() / temperature
 
-    def generate(self, context: str = "", greedy: bool = False) -> str:
+    def generate(self, context: str = "", sample: bool = True) -> str:
         with torch.no_grad():
             inputs = self._encode_text(context)
             tokens = inputs["input_ids"]
             mask = inputs["attention_mask"]
             context_length = len(self._decode_text(tokens[0]))
-            if greedy:
-                kwargs = {"do_sample": False}
-            else:
+            if sample:
                 kwargs = {"do_sample": True}
+            else:
+                kwargs = {"do_sample": False}
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore")
                 outputs = self._model.generate(

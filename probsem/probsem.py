@@ -1,5 +1,7 @@
+import multiprocessing
 import typing
 
+import joblib
 import numpy as np
 import numpy.typing as npt
 from tqdm import tqdm
@@ -48,25 +50,35 @@ class ProbSem(Object):
     def _generate_programs(self) -> None:
         self.info("Generating programs...")
         context = "\n".join([self.generator, self.query, ""])
-        for i in tqdm(list(range(self._sample.samples))):
-            if not i:
-                program = self.model.generate(context, greedy=True)
-            else:
-                program = self._model.generate(context)
+        with joblib.parallel_backend("loky", n_jobs=multiprocessing.cpu_count()):
+            programs = joblib.Parallel()(
+                joblib.delayed(self._model.generate)(context, bool(i))
+                for i in tqdm(list(range(self._sample.samples)))
+            )
+        for program in programs:
             self._sample.add_program(program)
+
+    def _score(self, mode: str, program: str, i: int) -> typing.Tuple[int, np.float64]:
+        if mode == "prior":
+            full_text = "\n".join([self.generator, self.query, program])
+            score = self.model.score(full_text, program, temperature=0.1)
+        elif mode == "likelihood":
+            full_text = "\n".join([self.summarizer, program, self.query])
+            score = self.model.score(full_text, self.query, temperature=0.5)
+        else:
+            raise ValueError(f"Unknown mode: {mode}")
+        return i, score
 
     def evaluate(self, mode: str) -> npt.NDArray[np.float64]:
         weights = np.zeros(len(self.programs))
         self.info(f"Evaluating {mode}...")
-        for i, program in tqdm(enumerate(self.programs), total=len(self.programs)):
-            if mode == "prior":
-                full_text = "\n".join([self.generator, self.query, program])
-                weights[i] = self.model.score(full_text, program, temperature=0.1)
-            elif mode == "likelihood":
-                full_text = "\n".join([self.summarizer, program, self.query])
-                weights[i] = self.model.score(full_text, self.query, temperature=0.5)
-            else:
-                raise ValueError(f"Unknown mode: {mode}")
+        with joblib.parallel_backend("loky", n_jobs=multiprocessing.cpu_count()):
+            scores = joblib.Parallel()(
+                joblib.delayed(self._score)(mode, program, i)
+                for i, program in tqdm(enumerate(list(self.programs)))
+            )
+        for i, score in scores:
+            weights[i] = score
         return weights
 
     def _log_results(self, mode: str, results: npt.NDArray[np.float64]) -> None:
