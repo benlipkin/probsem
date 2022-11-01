@@ -1,8 +1,4 @@
 {
     "query": "Lambda: reverse list",
-    "programs": [
-        "lambda x: x[::-1]",
-        "lambda x: x[:-1:]",
-        "lambda x: x[-1::]"
-    ]
+    "samples": 2
 }

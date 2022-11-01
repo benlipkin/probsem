@@ -24,9 +24,10 @@ $(PACKAGE).egg-info/ : setup.py requirements.txt
 
 ## test      : run testing pipeline.
 .PHONY : test
-test : mypy pylint
+test : mypy pylint pytest
 mypy : env html/mypy/index.html
 pylint : env html/pylint/index.html
+pytest : env html/coverage/index.html
 html/mypy/index.html : $(PACKAGE)/*.py
 	@$(ACTIVATE) ; mypy \
 	-p $(PACKAGE) \
@@ -41,3 +42,8 @@ html/pylint/index.json : $(PACKAGE)/*.py
 	--generated-members torch.* \
 	--output-format=colorized,json:$@ \
 	|| pylint-exit $$?
+html/coverage/index.html : html/pytest/report.html
+	@$(ACTIVATE) ; coverage html -d $(@D)
+html/pytest/report.html : $(PACKAGE)/*.py test/*.py
+	@$(ACTIVATE) ; coverage run --branch -m pytest \
+	--html=$@ --self-contained-html
