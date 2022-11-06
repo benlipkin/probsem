@@ -61,10 +61,10 @@ class ProbSem(Object):
         for i, program in tqdm(enumerate(self.programs), total=len(self.programs)):
             if mode == "prior":
                 full_text = "\n".join([self.generator, self.query, program])
-                weights[i] = self.model.score(full_text, program, temperature=0.1)
+                weights[i] = self.model.score(full_text, program, temperature=0.05)
             elif mode == "likelihood":
                 full_text = "\n".join([self.summarizer, program, self.query])
-                weights[i] = self.model.score(full_text, self.query, temperature=0.5)
+                weights[i] = self.model.score(full_text, self.query, temperature=0.15)
             else:
                 raise ValueError(f"Unknown mode: {mode}")
         return weights
