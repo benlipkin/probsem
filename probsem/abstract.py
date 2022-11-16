@@ -3,6 +3,8 @@ import logging
 import pathlib
 import typing
 
+import numpy as np
+
 
 class Object(abc.ABC):
     def __init__(self) -> None:
@@ -31,3 +33,14 @@ class Object(abc.ABC):
 
     def __getattribute__(self, name: str) -> typing.Any:
         return super().__getattribute__(name)
+
+
+@typing.runtime_checkable
+class IModel(typing.Protocol):
+    def __init__(self, model_id: str) -> None:
+        raise NotImplementedError()  # pragma: no cover
+
+    def score(
+        self, full_text: str, eval_text: str, normalize: bool, temperature: float
+    ) -> np.float64:
+        raise NotImplementedError()  # pragma: no cover

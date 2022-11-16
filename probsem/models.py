@@ -1,21 +1,60 @@
 import functools
+import pathlib
 import typing
 import warnings
 
 import numpy as np
+import openai
 import torch
 
 from transformers import AutoConfig, AutoTokenizer, AutoModelForCausalLM
 
-from probsem.abstract import Object
-from probsem.utils import tokenize, detokenize, strip_program
+from probsem.abstract import Object, IModel
+from probsem.utils import tokenize, detokenize
+
+openai.api_key_path = str(pathlib.Path.home() / ".openai_api_key")
 
 
-class Model(Object):
+class Model(Object, IModel):
     def __init__(self, model_id: str) -> None:
         super().__init__()
         self._id = model_id
-        self.info(f"Attempting to load {self._id} model...")
+        self._model: IModel
+        openai_engines = [engine["id"] for engine in openai.Engine.list()["data"]]
+        if self._id in openai_engines:
+            self.info("Model ID found in OpenAI engines.")
+            setattr(self, "_model", OpenAIModel(self._id))
+        else:
+            self.info("Model ID not found in OpenAI engines. Checking HuggingFace.")
+            setattr(self, "_model", HuggingFaceModel(self._id))
+
+    def score(
+        self,
+        full_text: str,
+        eval_text: str,
+        normalize: bool = False,
+        temperature: float = 1.0,
+    ) -> np.float64:
+        return self._model.score(full_text, eval_text, normalize, temperature)
+
+
+class OpenAIModel(Object, IModel):
+    def __init__(self, model_id: str) -> None:
+        super().__init__()
+        self._id = model_id
+        self.info(f"Selected OpenAI {self._id} model.")
+
+    def score(
+        self, full_text: str, eval_text: str, normalize: bool, temperature: float
+    ) -> np.float64:
+        raise NotImplementedError("Under development.")
+
+
+class HuggingFaceModel(Object, IModel):
+    def __init__(self, model_id: str) -> None:
+        super().__init__()
+        self._id = model_id
+        self.info(f"Attempting to load HuggingFace {self._id} model...")
         try:
             self._config = AutoConfig.from_pretrained(self._id)
             self._tokenizer = AutoTokenizer.from_pretrained(
@@ -58,11 +97,7 @@ class Model(Object):
         return detokenize(self._tokenizer.decode(tokens, skip_special_tokens=True))
 
     def score(
-        self,
-        full_text: str,
-        eval_text: str,
-        normalize: bool = True,
-        temperature: float = 1.0,
+        self, full_text: str, eval_text: str, normalize: bool, temperature: float
     ) -> np.float64:
         with torch.no_grad():
             inputs = self._encode_text(full_text)
@@ -83,32 +118,3 @@ class Model(Object):
             if normalize:
                 loss /= n_eval
             return -loss.cpu().detach().item() / temperature
-
-    def generate(self, context: str = "", sample: bool = True) -> str:
-        with torch.no_grad():
-            inputs = self._encode_text(context)
-            tokens = inputs["input_ids"]
-            mask = inputs["attention_mask"]
-            context_length = len(self._decode_text(tokens[0]))
-            if sample:
-                kwargs = {
-                    "do_sample": True,
-                    "top_k": 10,
-                    "top_p": 0.50,
-                    "temperature": 0.5,
-                }
-            else:
-                kwargs = {"do_sample": False}
-            with warnings.catch_warnings():
-                warnings.simplefilter("ignore")
-                outputs = self._model.generate(
-                    input_ids=tokens,
-                    attention_mask=mask,
-                    pad_token_id=self._tokenizer.eos_token_id,
-                    max_new_tokens=32,
-                    num_return_sequences=1,
-                    **kwargs,
-                )
-            generated = self._decode_text(outputs[0])
-            program = strip_program(generated[context_length:])
-            return program

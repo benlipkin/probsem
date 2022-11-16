@@ -1,82 +1,45 @@
 import typing
 
 import numpy as np
-import numpy.typing as npt
 from tqdm import tqdm
 
 from probsem.abstract import Object
+from probsem.benchmarks import Prompt, TestSuite
 from probsem.models import Model
-from probsem.utils import pretty_print
-from probsem.wrappers import Prompt, TestSample
+from probsem.utils import normalize, pretty_print
 
 
 class ProbSem(Object):
-    def __init__(
-        self,
-        prompt: str,
-        sample: str,
-        model: str,
-    ) -> None:
+    def __init__(self, prompt: str, suite: str, model: str) -> None:
         super().__init__()
         self._prompt = Prompt(prompt)
-        self._sample = TestSample(sample)
+        self._suite = TestSuite(prompt, suite)
         self._model = Model(model)
-        if len(self.programs) == 0:
-            self._generate_programs()
-        assert len(self.programs) > 0
 
     @property
-    def generator(self) -> str:
-        return self._prompt.generator
+    def _samples(self) -> typing.Iterable[typing.Dict[str, typing.Any]]:
+        for pos_sample, neg_sample in self._suite.samples:
+            yield {
+                "text": "\n".join(pos_sample.split("\n")[:-1]),
+                "pos_full": "\n".join([self._prompt.text, pos_sample]),
+                "neg_full": "\n".join([self._prompt.text, neg_sample]),
+                "pos_eval": pos_sample.split("\n")[-1],
+                "neg_eval": neg_sample.split("\n")[-1],
+            }
 
-    @property
-    def summarizer(self) -> str:
-        return self._prompt.summarizer
-
-    @property
-    def query(self) -> str:
-        return self._sample.query
-
-    @property
-    def programs(self) -> typing.List[str]:
-        return self._sample.programs
-
-    @property
-    def model(self) -> Model:
-        return self._model
-
-    def _generate_programs(self) -> None:
-        self.info("Generating programs...")
-        context = "\n".join([self.generator, self.query, ""])
-        for i in tqdm(list(range(self._sample.samples))):
-            if not i:
-                program = self.model.generate(context, sample=False)
-            else:
-                program = self.model.generate(context)
-            self._sample.add_program(program)
-
-    def evaluate(self, mode: str) -> npt.NDArray[np.float64]:
-        self.info(f"Evaluating {mode}...")
-        weights = np.zeros(len(self.programs))
-        for i, program in tqdm(enumerate(self.programs), total=len(self.programs)):
-            if mode == "prior":
-                full_text = "\n".join([self.generator, self.query, program])
-                weights[i] = self.model.score(full_text, program, temperature=0.05)
-            elif mode == "likelihood":
-                full_text = "\n".join([self.summarizer, program, self.query])
-                weights[i] = self.model.score(full_text, self.query, temperature=0.15)
-            else:
-                raise ValueError(f"Unknown mode: {mode}")
-        return weights
-
-    def _log_results(self, mode: str, results: npt.NDArray[np.float64]) -> None:
-        self.info(pretty_print(self.query, self.programs, results, mode))
+    @staticmethod
+    def _normalize_weights(sample):
+        sample["pos_score"], sample["neg_score"] = normalize(
+            np.array([sample["pos_weight"], sample["neg_weight"]])
+        )
 
     def run(self) -> None:
-        prior = self.evaluate("prior")
-        self._log_results("prior", prior)
-        likelihood = self.evaluate("likelihood")
-        self._log_results("likelihood", likelihood)
-        self.info("Calculating posterior...")
-        posterior = prior + likelihood
-        self._log_results("posterior", posterior)
+        for sample in tqdm(self._samples, total=self._suite.n_examples):
+            sample["pos_weight"] = self._model.score(
+                sample["pos_full"], sample["pos_eval"]
+            )
+            sample["neg_weight"] = self._model.score(
+                sample["neg_full"], sample["neg_eval"]
+            )
+            self._normalize_weights(sample)
+            self.info(pretty_print(sample))

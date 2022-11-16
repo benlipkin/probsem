@@ -3,10 +3,15 @@ import pytest
 from probsem.probsem import ProbSem
 
 
-@pytest.mark.parametrize("sample", [pytest.param("sample_1"), pytest.param("sample_2")])
-def test_run(sample):
+@pytest.mark.parametrize(
+    "prompt, suite, model",
+    [
+        pytest.param("test", "A", "Salesforce/codegen-350M-mono"),
+    ],
+)
+def test_run(prompt, suite, model):
     ProbSem(
-        prompt="prompt",
-        sample=sample,
-        model="Salesforce/codegen-2B-mono",
+        prompt=prompt,
+        suite=suite,
+        model=model,
     ).run()

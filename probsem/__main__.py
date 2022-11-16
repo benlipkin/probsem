@@ -10,8 +10,8 @@ class CLI(Object):
         super().__init__()
         self._parser = argparse.ArgumentParser()
         self._parser.add_argument("--prompt", required=True)
-        self._parser.add_argument("--sample", required=True)
-        self._parser.add_argument("--model", default="Salesforce/codegen-2B-mono")
+        self._parser.add_argument("--suite", required=True)
+        self._parser.add_argument("--model", default="code-davinci-002")
 
     def run_main(self) -> None:
         start = datetime.datetime.now()

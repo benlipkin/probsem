@@ -1,0 +1,17 @@
+{
+    "premise": ";; PREMISE",
+    "context": [
+        {
+            "text": ";; CONTEXT1", 
+            "expected": 0
+        }, {
+            "text": ";; CONTEXT2", 
+            "expected": 1
+        }
+    ],
+    "query": ";; QUERY",
+    "programs": [
+        "(PROGRAM1)",
+        "(PROGRAM2)"
+    ]
+}
