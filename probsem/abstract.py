@@ -40,7 +40,5 @@ class IModel(typing.Protocol):
     def __init__(self, model_id: str) -> None:
         raise NotImplementedError()  # pragma: no cover
 
-    def score(
-        self, full_text: str, eval_text: str, normalize: bool, temperature: float
-    ) -> np.float64:
+    def score(self, full_text: str, eval_text: str) -> typing.Tuple[np.float64, int]:
         raise NotImplementedError()  # pragma: no cover

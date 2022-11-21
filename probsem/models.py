@@ -16,7 +16,7 @@ from probsem.utils import tokenize, detokenize
 openai.api_key_path = str(pathlib.Path.home() / ".openai_api_key")
 
 
-class Model(Object, IModel):
+class Model(Object):
     def __init__(self, model_id: str) -> None:
         super().__init__()
         self._id = model_id
@@ -48,7 +48,9 @@ class OpenAIModel(Object, IModel):
         self._id = model_id
         self.info(f"Selected OpenAI {self._id} model.")
 
-    def _get_response(self, text: str, retry_after=10) -> str:
+    def _get_response(
+        self, text: str, retry_after=10
+    ) -> openai.openai_object.OpenAIObject:
         try:
             return openai.Completion.create(
                 engine=self._id,
