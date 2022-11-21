@@ -1,5 +1,6 @@
 import functools
 import pathlib
+import time
 import typing
 import warnings
 
@@ -32,10 +33,13 @@ class Model(Object, IModel):
         self,
         full_text: str,
         eval_text: str,
-        normalize: bool = False,
-        temperature: float = 1.0,
+        normalize: bool = True,
+        temperature: float = 0.2,
     ) -> np.float64:
-        return self._model.score(full_text, eval_text, normalize, temperature)
+        logp, num_eval = self._model.score(full_text, eval_text)
+        if normalize:
+            logp /= np.sqrt(num_eval)
+        return logp / temperature
 
 
 class OpenAIModel(Object, IModel):
@@ -44,10 +48,28 @@ class OpenAIModel(Object, IModel):
         self._id = model_id
         self.info(f"Selected OpenAI {self._id} model.")
 
-    def score(
-        self, full_text: str, eval_text: str, normalize: bool, temperature: float
-    ) -> np.float64:
-        raise NotImplementedError("Under development.")
+    def _get_response(self, text: str, retry_after=10) -> str:
+        try:
+            return openai.Completion.create(
+                engine=self._id,
+                prompt=text,
+                max_tokens=0,
+                logprobs=0,
+                echo=True,
+            )
+        except openai.error.RateLimitError:
+            self.warn(f"Rate limit exceeded. Retrying after {retry_after} seconds.")
+            time.sleep(retry_after)
+            return self._get_response(text, retry_after * 2)
+
+    def score(self, full_text: str, eval_text: str) -> typing.Tuple[np.float64, int]:
+        full_resp = self._get_response(full_text)
+        eval_resp = self._get_response(eval_text)
+        num_eval = eval_resp["usage"]["total_tokens"]
+        get_tokens = lambda resp: resp["choices"][0]["logprobs"]["tokens"]
+        assert get_tokens(full_resp)[-num_eval:] == get_tokens(eval_resp)
+        logp = np.sum(full_resp["choices"][0]["logprobs"]["token_logprobs"][-num_eval:])
+        return logp, num_eval
 
 
 class HuggingFaceModel(Object, IModel):
@@ -96,12 +118,10 @@ class HuggingFaceModel(Object, IModel):
     def _decode_text(self, tokens: torch.Tensor) -> str:
         return detokenize(self._tokenizer.decode(tokens, skip_special_tokens=True))
 
-    def score(
-        self, full_text: str, eval_text: str, normalize: bool, temperature: float
-    ) -> np.float64:
+    def score(self, full_text: str, eval_text: str) -> typing.Tuple[np.float64, int]:
         with torch.no_grad():
             inputs = self._encode_text(full_text)
-            n_eval = self._encode_text(eval_text)["input_ids"].shape[1]
+            num_eval = self._encode_text(eval_text)["input_ids"].shape[1]
             tokens = inputs["input_ids"]
             mask = inputs["attention_mask"]
             with warnings.catch_warnings():
@@ -114,7 +134,6 @@ class HuggingFaceModel(Object, IModel):
                 tokens[..., 1:].contiguous().view(-1),
             ).view(tokens.size(0), tokens.size(-1) - 1)
             loss = loss * mask[..., 1:].contiguous()
-            loss = loss[:, -n_eval:].sum(dim=1)
-            if normalize:
-                loss /= n_eval
-            return -loss.cpu().detach().item() / temperature
+            loss = loss[:, -num_eval:].sum(dim=1)
+            logp = -loss.cpu().detach().item()
+            return logp, num_eval
