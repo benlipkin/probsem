@@ -12,6 +12,7 @@ class CLI(Object):
         self._parser.add_argument("--prompt", required=True)
         self._parser.add_argument("--suite", required=True)
         self._parser.add_argument("--model", default="code-davinci-002")
+        self._parser.add_argument("--rerank", action="store_true")
 
     def run_main(self) -> None:
         start = datetime.datetime.now()
