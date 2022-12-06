@@ -47,7 +47,7 @@ class ProbSem(Object):
         scores = np.array([s["scores"] for s in samples])
         indices = np.array([s["correct"] for s in samples])
         if -1 in indices:
-            return np.nan
+            return np.float64(np.nan)
         correct = scores[np.arange(indices.size), indices] == scores.max(axis=1)
         accuracy = correct.mean()
         return accuracy
