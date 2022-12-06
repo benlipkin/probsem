@@ -27,12 +27,12 @@ def pretty_print_sample(sample: typing.Dict[str, typing.Any]) -> str:
     ostream.append("\nScores:")
     for _, (program, score) in enumerate(zip(sample["programs"], sample["scores"])):
         ostream.append(f"{score:.3f}\t{program}")
-    result = (
-        "TEST SAMPLE PASSED."
-        if np.argmax(sample["scores"]) == sample["correct"]
-        else "TEST SAMPLE FAILED."
-    )
-    ostream.append("\n" + result + "\n")
+    if sample["correct"] == -1:
+        ostream.append("")
+    elif np.argmax(sample["scores"]) == sample["correct"]:
+        ostream.append("\n" + "TEST SAMPLE PASSED." + "\n")
+    else:
+        ostream.append("\n" + "TEST SAMPLE FAILED." + "\n")
     return "\n".join([30 * "_"] + ostream + [30 * "_"])
 
 

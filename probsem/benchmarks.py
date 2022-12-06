@@ -28,10 +28,8 @@ class TestSuite(Object):
     @property
     def samples(self) -> typing.Iterator[typing.Tuple[int, typing.List[str]]]:
         def _sample(i: int) -> str:
-            if self._query == ";;":
-                parts = [self._premise, example["text"], self._programs[i]]
-            else:
-                parts = [self._premise, example["text"], self._query, self._programs[i]]
+            parts = [self._premise, example["text"], self._query, self._programs[i]]
+            parts = [p for p in parts if p != ";;"]
             return "\n".join(parts)
 
         for example in self._context:
