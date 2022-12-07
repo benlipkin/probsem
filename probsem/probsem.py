@@ -10,12 +10,11 @@ from probsem.utils import normalize, pretty_print_sample, pretty_print_summary
 
 
 class ProbSem(Object):
-    def __init__(self, prompt: str, suite: str, model: str, rerank: bool) -> None:
+    def __init__(self, prompt: str, suite: str, model: str) -> None:
         super().__init__()
         self._prompt = Prompt(prompt)
         self._suite = TestSuite(prompt, suite)
         self._model = Model(model)
-        self._rerank = rerank
 
     @property
     def _samples(self) -> typing.Iterable[typing.Dict[str, typing.Any]]:
@@ -29,18 +28,8 @@ class ProbSem(Object):
             }
 
     def _score(self, prompt: str, text: str, program: str) -> np.float64:
-        def _get_score(full_text: str) -> np.float64:
-            eval_text = full_text.split("\n")[-1]
-            return self._model.score(full_text, eval_text)
-
-        forward = _get_score("\n".join([prompt, text, program]))
-        if not self._rerank:
-            score = forward
-        else:
-            parts = [prompt, text[: text.rfind("\n")], program, text.split("\n")[-1]]
-            backward = _get_score("\n".join(parts))
-            score = forward + backward
-        return score
+        full_text = "\n".join([prompt, text, program])
+        return self._model.score(full_text, program)
 
     @staticmethod
     def _summarize(samples: typing.List[typing.Dict[str, typing.Any]]) -> np.float64:
