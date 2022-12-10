@@ -38,7 +38,11 @@ class ProbSem(Object):
     def _export_results_table(
         self, samples: typing.List[typing.Dict[str, typing.Any]]
     ) -> None:
-        fname = pathlib.Path(__file__).parents[1] / "outputs" / f"{self._run_id}.csv"
+        fname = (
+            pathlib.Path(__file__).parents[1]
+            / "outputs"
+            / f"{self._run_id}_results.csv"
+        )
         fname.parent.mkdir(parents=True, exist_ok=True)
         table = collections.defaultdict(list)
         for sample in samples:

@@ -8,7 +8,7 @@ ACTIVATE = source activate $(PACKAGE)
 ## help      : print available build commands.
 .PHONY : help
 help : Makefile
-	@sed -n 's/^##//p' $<
+	@sed -n 's/^##//p' $< ; echo
 
 ## update    : update repo with latest version from GitHub.
 .PHONY : update
@@ -47,3 +47,17 @@ html/coverage/index.html : html/pytest/report.html
 html/pytest/report.html : $(PACKAGE)/*.py test/*.py
 	@$(ACTIVATE) ; coverage run --branch -m pytest \
 	--html=$@ --self-contained-html
+
+## analysis  : run analysis pipeline.
+.PHONY : analysis
+analysis : env tug-of-war
+tug-of-war : benchmark_av
+benchmark_av : suite_av1 suite_av2
+suite_av1 : outputs/tug-of-war_AV-1_code-davinci-002_results.csv
+suite_av2 : outputs/tug-of-war_AV-2_code-davinci-002_results.csv
+_split = $(word $2,$(subst _, ,$1))
+outputs/%_results.csv : $(PACKAGE)/*.py
+	@$(ACTIVATE) ; python -m $(PACKAGE) \
+	--prompt $(call _split,$(@F),1) \
+	--suite $(call _split,$(@F),2) \
+	--model $(call _split,$(@F),3)
