@@ -61,3 +61,14 @@ outputs/%_results.csv : $(PACKAGE)/*.py
 	--prompt $(call _split,$(@F),1) \
 	--suite $(call _split,$(@F),2) \
 	--model $(call _split,$(@F),3)
+
+
+## plots	 : generate plots.
+.PHONY : plots
+plots : analysis tug-of-war-plots
+tug-of-war-plots : benchmark_av_plots
+benchmark_av_plots : suite_av1_plots suite_av2_plots
+suite_av1_plots : outputs/tug-of-war_AV-1_code-davinci-002_plot.png
+suite_av2_plots : outputs/tug-of-war_AV-2_code-davinci-002_plot.png
+outputs/%_plot.png : outputs/%_results.csv
+	@$(ACTIVATE) ; cd paper; python -m plots $(<F:_results.csv=)

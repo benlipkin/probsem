@@ -5,6 +5,7 @@ pandas==1.5.1
 torch==1.12.1
 transformers==4.23.1
 accelerate==0.13.2
+matplotlib==3.6.2
 mypy==0.982
 lxml==4.9.1
 tqdm-stubs==0.2.1
