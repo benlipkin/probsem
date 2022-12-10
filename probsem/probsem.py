@@ -1,17 +1,21 @@
+import collections
+import pathlib
 import typing
 
 import numpy as np
+import pandas as pd
 from tqdm import tqdm
 
 from probsem.abstract import Object
 from probsem.benchmarks import Prompt, TestSuite
 from probsem.models import Model
-from probsem.utils import normalize, pretty_print_sample, pretty_print_summary
+from probsem.utils import normalize, print_sample, print_summary, sanitize_filename
 
 
 class ProbSem(Object):
     def __init__(self, prompt: str, suite: str, model: str) -> None:
         super().__init__()
+        self._run_id = sanitize_filename(f"{prompt}_{suite}_{model}")
         self._prompt = Prompt(prompt)
         self._suite = TestSuite(prompt, suite)
         self._model = Model(model)
@@ -31,15 +35,17 @@ class ProbSem(Object):
         full_text = "\n".join([prompt, text, program])
         return self._model.score(full_text, program)
 
-    @staticmethod
-    def _summarize(samples: typing.List[typing.Dict[str, typing.Any]]) -> np.float64:
-        scores = np.array([s["scores"] for s in samples])
-        indices = np.array([s["correct"] for s in samples])
-        if -1 in indices:
-            return np.float64(np.nan)
-        correct = scores[np.arange(indices.size), indices] == scores.max(axis=1)
-        accuracy = correct.mean()
-        return accuracy
+    def _export_results_table(
+        self, samples: typing.List[typing.Dict[str, typing.Any]]
+    ) -> None:
+        fname = pathlib.Path(__file__).parents[1] / "outputs" / f"{self._run_id}.csv"
+        fname.parent.mkdir(parents=True, exist_ok=True)
+        table = collections.defaultdict(list)
+        for sample in samples:
+            table["text"].extend(sample["text"])
+            table["program"].extend(sample["programs"])
+            table["score"].extend(sample["scores"])
+        pd.DataFrame(table).to_csv(fname, index=False)
 
     def run(self) -> None:
         samples = []
@@ -55,5 +61,6 @@ class ProbSem(Object):
             sample["weights"] = np.array(sample["weights"])
             sample["scores"] = normalize(sample["weights"])
             samples.append(sample)
-            self.info(pretty_print_sample(sample))
-        self.info(pretty_print_summary(self._summarize(samples)))
+            self.info(print_sample(sample))
+        self.info(print_summary(samples))
+        self._export_results_table(samples)
