@@ -1,0 +1,35 @@
+{
+    "premise": ";;",
+    "context": [
+        {
+            "text": ";; Jack beat Jill and John, together.", 
+            "expected": 0
+        }, {
+            "text": ";; Jack beat Jill and John, each.", 
+            "expected": 1
+        }, {
+            "text": ";; Jack beat Jill and John, jointly.", 
+            "expected": 0
+        }, {
+            "text": ";; Jack beat Jill and John, separately.", 
+            "expected": 1
+        }, {
+            "text": ";; Jack beat Jill and John, as a team.", 
+            "expected": 0
+        }, {
+            "text": ";; Jack beat Jill and John, individually.", 
+            "expected": 1
+        }, {
+            "text": ";; Jack beat Jill and John, collectively.", 
+            "expected": 0
+        }, {
+            "text": ";; Jack beat Jill and John, respectively.", 
+            "expected": 1
+        }
+    ],
+    "query": ";;",
+    "programs": [
+        "(condition (won-against '(jack) '(jill john)))",
+        "(condition (and (won-against '(jack) '(jill)) (won-against '(jack) '(john))))"
+    ]
+}

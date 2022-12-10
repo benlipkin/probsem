@@ -1,0 +1,14 @@
+{
+    "premise": ";;",
+    "context": [
+        {
+            "text": ";; Jack beat Jill and John.", 
+            "expected": -1
+        }
+    ],
+    "query": ";;",
+    "programs": [
+        "(condition (won-against '(jack) '(jill john)))",
+        "(condition (and (won-against '(jack) '(jill)) (won-against '(jack) '(john))))"
+    ]
+}

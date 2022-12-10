@@ -1,0 +1,35 @@
+{
+    "premise": ";;",
+    "context": [
+        {
+            "text": ";; Jack and Jill are, together, stronger than John and Jane.",
+            "expected": 0
+        }, {
+            "text": ";; Jack and Jill are, each, stronger than John and Jane.",
+            "expected": 1
+        }, {
+            "text": ";; Jack and Jill are, jointly, stronger than John and Jane.",
+            "expected": 0
+        }, {
+            "text": ";; Jack and Jill are, separately, stronger than John and Jane.",
+            "expected": 1
+        }, {
+            "text": ";; Jack and Jill are, as a team, stronger than John and Jane.",
+            "expected": 0
+        }, {
+            "text": ";; Jack and Jill are, individually, stronger than John and Jane.",
+            "expected": 1
+        }, {
+            "text": ";; Jack and Jill are, collectively, stronger than John and Jane.",
+            "expected": 0
+        }, {
+            "text": ";; Jack and Jill are, respectively, stronger than John and Jane.",
+            "expected": 1
+        }
+    ],
+    "query": ";;",
+    "programs": [
+        "(condition (> (+ (strength 'jack) (strength 'jill)) (+ (strength 'john) (strength 'jane))))",
+        "(condition (and (> (strength 'jack) (strength 'john)) (> (strength 'jill) (strength 'jane))))"
+    ]
+}
