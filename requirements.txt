@@ -1,7 +1,7 @@
 nltk==3.7
 numpy==1.23.4
 openai==0.25.0
-pandas==1.16.0
+pandas==1.5.1
 torch==1.12.1
 transformers==4.23.1
 accelerate==0.13.2
