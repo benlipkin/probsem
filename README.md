@@ -8,10 +8,6 @@ This repository explores the efficacy of large language models trained jointly o
 
 This work extends the notion of using LLMs for natural language guided program synthesis from single programs to distributions over programs.
 
-## Alpha Status
-
-This repository is currently under development and evolving rapidly. It should be considered unstable, and more information will be made available once more established.
-
 ## Getting Started
 
 Requirements: [Anaconda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html), [GNU Make](https://www.gnu.org/software/make/manual/make.html)
@@ -30,13 +26,20 @@ make test
 ## Run
 
 ```bash
-# first, write example test suite in inputs folder, e.g., 
-nano inputs/tug-of-war.txt
-nano inputs/tug-of-war_A.json
+### REPLICATE PAPER RESULTS:
+
+# a full pipeline from env to figures is provided
+make paper
+
+### RUN CUSTOM ANALYSIS:
+
+# write an example test suite in inputs folder, e.g.,
+nano inputs/domain.txt
+nano inputs/domain_benchmark.json
 
 # then, score that test suite on the command line
 conda activate probsem
-python -m probsem --prompt tug-of-war --suite A
+python -m probsem --prompt domain --suite benchmark
 
 # default model is OpenAI code-davinci-002
 # all OpenAI and HuggingFace causal models supported
