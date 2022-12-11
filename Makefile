@@ -69,7 +69,7 @@ outputs/%_results.csv : $(PACKAGE)/*.py
 	--suite $(call _split,$(@F),2) \
 	--model $(call _split,$(@F),3)
 
-## paper	  : generate plots.
+## paper	   : generate plots.
 .PHONY : paper
 paper : analysis tug-of-war-plots
 tug-of-war-plots : benchmark_av_plots benchmark_pp_plots
