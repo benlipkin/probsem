@@ -1,0 +1,23 @@
+{
+    "premise": ";;",
+    "context": [
+        {
+            "text": ";; Jill and John were the weakest players around.", 
+            "expected": 0
+        }, {
+            "text": ";; Jack was not much stronger than average.", 
+            "expected": 1
+        }, {
+            "text": ";; The tournament had some crazy blowout matches.", 
+            "expected": 0
+        }, {
+            "text": ";; The matches in the tournament were generally close.", 
+            "expected": 1
+        }
+    ],
+    "query": ";; Jack beat Jill and John.",
+    "programs": [
+        "(condition (won-against '(jack) '(jill john)))",
+        "(condition (and (won-against '(jack) '(jill)) (won-against '(jack) '(john))))"
+    ]
+}
