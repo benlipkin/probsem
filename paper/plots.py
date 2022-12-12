@@ -114,7 +114,7 @@ def make_pp_plot2(pp_suite):
             fontsize=10,
             **args,
         )
-        ax.set_title(text.replace(";; ", "").split("\n")[0], fontsize=8, **args)
+        ax.set_title(text.replace(";; ", "").split("\n")[0], fontsize=7, **args)
         ax.set_xlabel("Interpretation", fontsize=12, **args) if i == 2 else None
         ax.set_ylabel("Probability Mass", fontsize=12, **args) if j == 0 else None
         for spine in ["top", "right", "left"]:

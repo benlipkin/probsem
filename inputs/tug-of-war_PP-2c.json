@@ -2,16 +2,16 @@
     "premise": ";;",
     "context": [
         {
-            "text": ";; Jill and John were the weakest players around.", 
+            "text": ";; The tournament had more two-on-one than one-on-one matches.", 
             "expected": 0
         }, {
-            "text": ";; Jack was not much stronger than average.", 
+            "text": ";; The tournament had fewer two-on-one than one-on-one matches.", 
             "expected": 1
         }, {
-            "text": ";; The tournament had some crazy blowout matches.", 
+            "text": ";; Jack had the strength to beat two players at once.", 
             "expected": 0
         }, {
-            "text": ";; The matches in the tournament were generally close.", 
+            "text": ";; Jack lacked the strength to beat two players at once.", 
             "expected": 1
         }
     ],
