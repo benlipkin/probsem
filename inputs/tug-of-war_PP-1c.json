@@ -8,7 +8,7 @@
             "text": ";; Jack and Jill, each, won their first match.",
             "expected": 1
         }, {
-            "text": ";; John and Jane, together, lost their first match..",
+            "text": ";; John and Jane, together, lost their first match.",
             "expected": 0
         }, {
             "text": ";; John and Jane, each, lost their first match.",
