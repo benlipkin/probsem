@@ -2,6 +2,14 @@
 
 # ProbSem
 
+## Version Warning
+
+This branch contains the resources for the paper `Exploring and Addressing Uncertainty in Semantic Parsing` by Ben Lipkin.
+
+This work was developed originally for the 9.660 Course Project at MIT with Dr. Joshua Tenenbaum, but has since been updated.
+
+See the `main` branch for up-to-date version information.
+
 ## Summary
 
 This repository explores the efficacy of large language models trained jointly on natural text and source code to act as probabilistic semantic parsers.
