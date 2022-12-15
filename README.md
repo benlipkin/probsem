@@ -8,6 +8,10 @@ This repository explores the efficacy of large language models trained jointly o
 
 This work extends the notion of using LLMs for natural language guided program synthesis from single programs to distributions over programs.
 
+## Version Note
+
+This branch is currently under development, and should be considered unstable. To replicate specific papers, `git checkout` the corresponding branch, e.g., `CoCoSci2022`, and follow instructions in the corresponding `README.md`.
+
 ## Getting Started
 
 Requirements: [Anaconda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html), [GNU Make](https://www.gnu.org/software/make/manual/make.html)
