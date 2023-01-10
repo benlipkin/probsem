@@ -19,8 +19,8 @@ def make_av_plot(av_suite):
         ax.bar(theta, samples["score"], width=10, color="darkgreen", edgecolor="black")
         args = {"fontname": "serif", "fontweight": "bold"}
         ax.set_xticks(
-            np.arange(10, 91, 10),
-            labels=np.arange(10, 91, 10),
+            np.arange(0, 101, 10),
+            labels=np.arange(0, 101, 10),
             rotation=45,
             fontsize=10,
             **args,

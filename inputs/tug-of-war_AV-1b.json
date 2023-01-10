@@ -32,6 +32,7 @@
     ],
     "query": ";;",
     "programs": [
+        "(condition (< (strength 'jack) 0))",
         "(condition (< (strength 'jack) 10))",
         "(condition (< (strength 'jack) 20))",
         "(condition (< (strength 'jack) 30))",
@@ -40,6 +41,7 @@
         "(condition (< (strength 'jack) 60))",
         "(condition (< (strength 'jack) 70))",
         "(condition (< (strength 'jack) 80))",
-        "(condition (< (strength 'jack) 90))"
+        "(condition (< (strength 'jack) 90))",
+        "(condition (< (strength 'jack) 100))"
     ]
 }
