@@ -34,7 +34,7 @@ class Model(Object):
         full_text: str,
         eval_text: str,
         normalize: bool = True,
-        temperature: float = 0.2,
+        temperature: float = 1.0,
     ) -> np.float64:
         logp, num_eval = self._model.score(full_text, eval_text)
         if normalize:

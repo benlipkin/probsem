@@ -48,6 +48,7 @@ class ProbSem(Object):
         for sample in samples:
             table["text"].extend(sample["text"])
             table["program"].extend(sample["programs"])
+            table["weights"].extend(sample["weights"])
             table["score"].extend(sample["scores"])
         pd.DataFrame(table).to_csv(fname, index=False)
 
