@@ -50,10 +50,9 @@ html/pytest/report.html : $(PACKAGE)/*.py test/*.py
 
 ## analysis  : run analysis pipeline.
 .PHONY : analysis
-analysis : env expt_1
-expt_1 : test_av1a test_av1b
-test_av1a : outputs/tug-of-war_AV-1a_code-davinci-002_results.csv
-test_av1b : outputs/tug-of-war_AV-1b_code-davinci-002_results.csv
+analysis : env av1a av1b
+av1a : outputs/tug-of-war_AV-1a_code-davinci-002_results.csv
+av1b : outputs/tug-of-war_AV-1b_code-davinci-002_results.csv
 _split = $(word $2,$(subst _, ,$1))
 outputs/%_results.csv : $(PACKAGE)/*.py
 	@$(ACTIVATE) ; python -m $(PACKAGE) \
@@ -63,9 +62,10 @@ outputs/%_results.csv : $(PACKAGE)/*.py
 
 ## paper	   : generate plots.
 .PHONY : paper
-paper : analysis expt_1_plots
-expt_1_plots : test_av1a_plots test_av1b_plots
-test_av1a_plots : outputs/tug-of-war_AV-1a_code-davinci-002_plot.png
-test_av1b_plots : outputs/tug-of-war_AV-1b_code-davinci-002_plot.png
-outputs/%_plot.png : paper/plots.py
-	@$(ACTIVATE) ; cd paper; python -m plots $(@F:_plot.png=)
+paper : analysis plots
+plots : norms outputs/figures
+norms : outputs/tug-of-war_AV-1_data.csv
+outputs/tug-of-war_AV-1_data.csv : paper/norms.py
+	@$(ACTIVATE) ; cd paper; python -m norms
+outputs/figures : paper/plots.py
+	@$(ACTIVATE) ; cd paper; python -m plots
