@@ -1,4 +1,5 @@
 import collections
+import sys
 
 import numpy as np
 import pandas as pd
@@ -12,19 +13,16 @@ np.random.seed(0)
 metric = scipy.spatial.distance.jensenshannon
 
 
-def load_model_data():
-    data = pd.concat(
-        (
-            pd.read_csv("../outputs/tug-of-war_AV-1a_code-davinci-002_results.csv"),
-            pd.read_csv("../outputs/tug-of-war_AV-1b_code-davinci-002_results.csv"),
-        )
-    )
+def load_model_data(fname):
+    data = pd.read_csv(f"../outputs/{fname.replace('data','results')}")
     data["theta"] = data["program"].str[31:34].str.strip(")").astype(float).values
     return data
 
 
-def load_human_data():
-    data = pd.read_csv("tug-of-war_AV-1_human_results.csv").set_index("subject_id")
+def load_human_data(fname):
+    data = pd.read_csv(
+        f"{'_'.join(fname.split('_')[:2])[:-1]}_human_results.csv"
+    ).set_index("subject_id")
     counts = collections.defaultdict(list)
     for sentence in data.columns:
         samples = data[sentence].values
@@ -33,6 +31,10 @@ def load_human_data():
             counts["theta"].append(theta)
             counts["count"].append(np.sum(samples == theta))
     return pd.DataFrame(counts)
+
+
+def filter_human_data(human_data, model_data):
+    return human_data.loc[human_data["text"].isin(model_data["text"].unique()), :]
 
 
 def calc_human_probs(data):
@@ -96,7 +98,6 @@ def compare_distributions(model_data, human_data):
         )
         pval = np.sum(null_distances <= js_distance) / null_distances.size
         scores["text"].append(sentence)
-        scores["temperature"].append(model_table["temperature"].values[0])
         scores["js_distance"].append(js_distance)
         scores["pval"].append(pval)
     scores["pval_fdr"] = statsmodels.stats.multitest.multipletests(
@@ -109,38 +110,26 @@ def compare_distributions(model_data, human_data):
 def merge_data(model_data, human_data):
     model_data["source"] = "model"
     human_data["source"] = "human"
+    human_data["temperature"] = np.nan
     return pd.concat(
         (
-            t.loc[:, ["source", "text", "theta", "prob"]]
+            t.loc[:, ["source", "text", "theta", "temperature", "prob"]]
             for t in (model_data, human_data)
         )
     )
 
 
-def export_scores(scores):
-    scores.to_csv("../outputs/tug-of-war_AV-1_stats.csv", index=False)
-    scores["text"] = scores["text"].str.replace(";; ", "")
-    scores["js_distance"] = scores["js_distance"].apply(lambda x: f"{x:.3f}")
-    scores["pval_fdr"] = scores["pval_fdr"].apply(
-        lambda x: f"{x:.3f} *" if x < 0.05 else f"{x:.3f}"
+def main(fname):
+    model_data = load_model_data(fname)
+    human_data = load_human_data(fname)
+    human_data = filter_human_data(human_data, model_data)
+    human_data = calc_human_probs(human_data)
+    model_data = norm_model_probs(model_data, human_data)
+    merge_data(model_data, human_data).to_csv(f"../outputs/{fname}", index=False)
+    compare_distributions(model_data, human_data).to_csv(
+        f"../outputs/{fname.replace('data','stats')}", index=False
     )
-    scores.loc[:, ["text", "js_distance", "pval_fdr"]].rename(
-        columns={
-            "text": "Sentence",
-            "js_distance": "Jensen-Shannon Distance",
-            "pval_fdr": "FDR p-value",
-        }
-    ).to_latex("../outputs/tug-of-war_AV-1_stats.tex", index=False)
-
-
-def main():
-    human_data = calc_human_probs(load_human_data())
-    model_data = norm_model_probs(load_model_data(), human_data)
-    merge_data(model_data, human_data).to_csv(
-        "../outputs/tug-of-war_AV-1_data.csv", index=False
-    )
-    export_scores(compare_distributions(model_data, human_data))
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1])

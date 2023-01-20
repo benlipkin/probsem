@@ -1,0 +1,38 @@
+{
+    "premise": ";;",
+    "context": [
+        {
+            "text": ";; Jack has at least average strength for a beginner player.", 
+            "expected": -1
+        }, {
+            "text": ";; Jack has at least average strength for an intermediate player.", 
+            "expected": -1
+        }, {
+            "text": ";; Jack has at least average strength for a professional player.", 
+            "expected": -1
+        }, {
+            "text": ";; Jack is very strong for a beginner player.", 
+            "expected": -1
+        }, {
+            "text": ";; Jack is very strong for an intermediate player.", 
+            "expected": -1
+        }, {
+            "text": ";; Jack is very strong for a professional player.", 
+            "expected": -1
+        }
+    ],
+    "query": ";;",
+    "programs": [
+        "(condition (> (strength 'jack) 0))",
+        "(condition (> (strength 'jack) 10))",
+        "(condition (> (strength 'jack) 20))",
+        "(condition (> (strength 'jack) 30))",
+        "(condition (> (strength 'jack) 40))",
+        "(condition (> (strength 'jack) 50))",
+        "(condition (> (strength 'jack) 60))",
+        "(condition (> (strength 'jack) 70))",
+        "(condition (> (strength 'jack) 80))",
+        "(condition (> (strength 'jack) 90))",
+        "(condition (> (strength 'jack) 100))"
+    ]
+}

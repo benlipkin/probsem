@@ -1,0 +1,26 @@
+;; This Church program models a tug-of-war game between teams of players.
+
+;; Each player has a strength, with strength varying by player league.
+(define strength (mem (lambda (player league) 
+    (cond 
+        ((equal? league 'beginner) (gaussian 30 20))
+        ((equal? league 'intermediate) (gaussian 50 20))
+        ((equal? league 'professional) (gaussian 70 20))
+    )
+)))
+
+;; Each player has an intrinsic laziness frequency.
+(define laziness (mem (lambda (player) (uniform 0 1))))
+
+;; The strength of the team is the sum of the player strengths.
+;; When a player is lazy in a match, they pull with half their strength.
+(define (team-strength team) (sum (map (lambda (player) (if (flip (laziness player)) (/ (strength player) 2) (strength player))) team)))
+
+;; The winner of the match is the stronger team.
+;; Returns true if team-1 won against team-2, else false.
+(define (won-against team-1 team-2) (> (team-strength team-1) (team-strength team-2)))
+
+;; Now, let us translate some user-defined statements.
+;; Each statement begins with either `Condition` or `Query`.
+;; `Condition` statements provide facts about the scenario.
+;; `Query` statements are questions that evaluate quantities of interest.
