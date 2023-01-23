@@ -6,7 +6,6 @@ import pandas as pd
 
 import scipy
 import scipy.optimize
-import statsmodels.stats.multitest
 
 np.random.seed(0)
 
@@ -102,10 +101,6 @@ def compare_distributions(model_data, human_data):
         scores["text"].append(sentence)
         scores["js_distance"].append(js_distance)
         scores["pval"].append(pval)
-    scores["pval_fdr"] = statsmodels.stats.multitest.multipletests(
-        scores["pval"], method="fdr_bh"
-    )[1]
-    scores["significant"] = (scores["pval_fdr"] < 0.05).astype(int)
     return pd.DataFrame(scores)
 
 
