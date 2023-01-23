@@ -1,7 +1,7 @@
 // init jspsych and set up prolific
 const jsPsych = initJsPsych({
       on_finish: function () {
-        window.location = "https://app.prolific.co/submissions/complete?cc=CYD2OXD2"
+        window.location = ""
     },
     show_progress_bar: true,
     auto_update_progress_bar: false
