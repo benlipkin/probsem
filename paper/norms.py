@@ -51,6 +51,8 @@ def norm_model_probs(model_data, human_data):
         return np.exp(weights) / np.sum(np.exp(weights))
 
     def optim_loss(train_model_samples, train_human_samples, temperature):
+        if temperature <= 0:
+            return np.inf
         loss = 0
         for sentence in train_model_samples["text"].unique():
             model_samples = train_model_samples.loc[
