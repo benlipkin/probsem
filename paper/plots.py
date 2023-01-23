@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 def make_av_plot(data, fname, dims):
     fig, axes = plt.subplots(
-        dims[0], dims[1], figsize=(3 * dims[0], 2 * dims[1]), sharex=True, sharey=True
+        dims[0], dims[1], figsize=(3 * dims[1], 2 * dims[0]), sharex=True, sharey=True
     )
     for i, j in itertools.product(range(dims[0]), range(dims[1])):
         for k, source in enumerate(data["source"].unique()[::-1]):
@@ -44,14 +44,18 @@ def make_av_plot(data, fname, dims):
                 fontsize=10,
                 **args,
             )
-            ax.set_title(text.strip("; "), fontsize=12, **args)
+            ax.set_title(
+                text.strip("; ").replace(" for ", "\nfor ").replace(" of ", "\nof "),
+                fontsize=10,
+                **args,
+            )
             ax.set_xlabel(r"$\theta$", fontsize=12, **args) if i == 2 else None
             ax.set_ylabel("Probability Mass", fontsize=12, **args) if j == 0 else None
             for spine in ["top", "right", "left"]:
                 ax.spines[spine].set_visible(False)
         if not i + j:
             ax.legend(
-                loc="upper left",
+                loc="upper right",
                 fontsize=12,
                 frameon=False,
                 prop={"family": "serif", "weight": "bold"},
