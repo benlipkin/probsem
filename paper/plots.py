@@ -24,9 +24,9 @@ def make_av_plot(data, fname, dims):
                 samples["theta"],
                 samples["prob"],
                 width=10,
-                color=["darkblue", "darkgreen"][k],
+                color=["tab:blue", "darkgreen"][k],
                 edgecolor="black",
-                alpha=0.7,
+                alpha=[1.0, 0.7][k],
                 label=source.capitalize(),
             )
             ax.set_ylim(0, 1.05)
