@@ -55,7 +55,7 @@ const general_instructions = {
   to inform computer science and cognitive science research about language processing.</p>
   <p>This experiment should take at most <b>10 minutes</b>. You will be compensated at a base rate 
   of $15.00/hour for a total of <b>$2.50</b>, which you will receive as long as you complete the study.</p>
-  <p>We take your compensation and time seriously! The email for the main experimenter is <b>lipkinb@mit.edu</b>. 
+  <p>We take your compensation and time seriously! The email for the main experimenter is <b>ANONYMOUS</b>. 
   Please write this down now, and email us with your Prolific ID and the subject line "Prolific Experiment" 
   if you have problems submitting this task, or if it takes much more time than expected.</p>
   <p>This experiment must be completed in <b>full-screen</b> in order to view all the required components. 

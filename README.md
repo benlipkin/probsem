@@ -1,16 +1,8 @@
-[![Tests](https://github.com/benlipkin/probsem/actions/workflows/testing.yml/badge.svg)](https://github.com/benlipkin/probsem/actions/workflows/testing.yml)
-
 # ProbSem
 
-## Summary
+## Version
 
-This repository explores the efficacy of large language models trained jointly on natural text and source code to act as probabilistic semantic parsers.
-
-This work extends the notion of using LLMs for natural language guided program synthesis from single programs to distributions over programs.
-
-## Version Note
-
-This branch is currently under development, and should be considered unstable. To replicate specific papers, `git checkout` the corresponding branch, e.g., `CoCoSci2022`, and follow instructions in the corresponding `README.md`.
+Anonymous resources for the paper `Investigating amortized pragmatic inference with large language models`.
 
 ## Getting Started
 
@@ -18,7 +10,7 @@ Requirements: [Anaconda](https://conda.io/projects/conda/en/latest/user-guide/in
 
 ```bash
 # download the repo
-git clone git@github.com:benlipkin/probsem.git
+git clone git@github.com:ANONYMOUS/probsem.git
 
 # build environment
 make env
