@@ -14,12 +14,25 @@ from probsem.utils import normalize, print_sample, print_summary, sanitize_filen
 
 class ProbSem(Object):
     def __init__(
-        self, prompt: str, test: str, model: str, norm: bool = False, temp: float = 1.0
+        self,
+        prompt: str,
+        test: str,
+        model: str,
+        norm: bool = False,
+        temp: float = 1.0,
+        input_dir: str | pathlib.Path = "",
+        output_dir: str | pathlib.Path = "",
     ) -> None:
         super().__init__()
+        if input_dir == "":
+            input_dir = self._base / "inputs"
+        if output_dir == "":
+            output_dir = self._base / "outputs"
+        self._input_dir = pathlib.Path(input_dir)
+        self._output_dir = pathlib.Path(output_dir)
         self._run_id = sanitize_filename(f"{prompt}_{test}_{model}")
-        self._prompt = Prompt(prompt)
-        self._suite = TestSuite(prompt, test)
+        self._prompt = Prompt(prompt, self._input_dir)
+        self._suite = TestSuite(prompt, test, self._input_dir)
         self._model = Model(model, norm, temp)
 
     @property
@@ -40,11 +53,7 @@ class ProbSem(Object):
     def _export_results_table(
         self, samples: typing.List[typing.Dict[str, typing.Any]]
     ) -> None:
-        fname = (
-            pathlib.Path(__file__).parents[1]
-            / "outputs"
-            / f"{self._run_id}_results.csv"
-        )
+        fname = self._output_dir / f"{self._run_id}_results.csv"
         fname.parent.mkdir(parents=True, exist_ok=True)
         table = collections.defaultdict(list)
         for sample in samples:

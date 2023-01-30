@@ -43,6 +43,7 @@ nano inputs/prompt_benchmark.json
 conda activate probsem
 python -m probsem --prompt prompt --test benchmark
 # additional args provided for token-level norming and softmax temp
+# as well as modifying input and output directories
 
 # default model is OpenAI code-davinci-002
 # all OpenAI and HuggingFace causal models supported

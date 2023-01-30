@@ -6,24 +6,24 @@ from probsem.abstract import Object
 
 
 class Prompt(Object):
-    def __init__(self, prompt: str) -> None:
+    def __init__(self, prompt: str, input_dir: pathlib.Path) -> None:
         super().__init__()
-        self._text = self._load(prompt)
+        self._text = self._load(prompt, input_dir)
 
     @property
     def text(self) -> str:
         return self._text
 
-    def _load(self, prompt: str) -> str:
-        prompt_file = pathlib.Path(__file__).parents[1] / "inputs" / f"{prompt}.txt"
+    def _load(self, prompt: str, input_dir: pathlib.Path) -> str:
+        prompt_file = input_dir / f"{prompt}.txt"
         with open(prompt_file, "r", encoding="utf-8") as fstream:
             return fstream.read()
 
 
 class TestSuite(Object):
-    def __init__(self, prompt: str, suite: str) -> None:
+    def __init__(self, prompt: str, suite: str, input_dir: pathlib.Path) -> None:
         super().__init__()
-        self._suite = self._load(prompt, suite)
+        self._suite = self._load(prompt, suite, input_dir)
 
     @property
     def samples(self) -> typing.Iterator[typing.Tuple[int, typing.List[str]]]:
@@ -75,9 +75,7 @@ class TestSuite(Object):
         assert all(isinstance(p, str) for p in self._suite["queries"])
         return self._suite["queries"]
 
-    def _load(self, prompt: str, suite: str) -> dict:
-        suite_file = (
-            pathlib.Path(__file__).parents[1] / "inputs" / f"{prompt}_{suite}.json"
-        )
+    def _load(self, prompt: str, suite: str, input_dir: pathlib.Path) -> dict:
+        suite_file = input_dir / f"{prompt}_{suite}.json"
         with open(suite_file, "r", encoding="utf-8") as fstream:
             return json.load(fstream)
