@@ -117,8 +117,9 @@ Once a prompt and test suite are defined, they can be evaluated at the command l
 
 ```bash
 conda activate probsem
-python -m probsem --prompt prompt --test testsuiteA
-python -m probsem --prompt prompt --test testsuiteB
+python -m probsem --prompt prompt --test testsuiteA --model code-davinci-002
+python -m probsem --prompt prompt --test testsuiteB --model Salesforce/codegen-350M-mono
+# all OpenAI API engines and HuggingFace Causal LM models are supported
 ```
 
 As you can see, in order to evaluate the file `inputs/prompt_testsuiteA.json`, the string "prompt" is passed to the `--prompt` flag and "testsuiteA" to the `--test` flag. `*.json` files must be prefixed with their appropriate prompt to make sure the corresponding text file, here `inputs/prompt.txt`, gets read in. The default `--input_dir` is the `inputs` folder, but can be updated by the user. An `--output_dir` flag is provided as well, else default `outputs`.
