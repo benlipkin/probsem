@@ -28,13 +28,13 @@ class TestSuite(Object):
     @property
     def samples(self) -> typing.Iterator[typing.Tuple[int, typing.List[str]]]:
         def _sample(i: int) -> str:
-            parts = [self._premise, example["text"], self._query, self._programs[i]]
-            parts = [p for p in parts if p != ";;"]
+            parts = [self._pretext, example["text"], self._posttext, self._queries[i]]
+            parts = [p for p in parts if p != ""]
             return "\n".join(parts)
 
         for example in self._context:
             index = example["expected"]
-            samples = [_sample(i) for i in range(len(self._programs))]
+            samples = [_sample(i) for i in range(len(self._queries))]
             yield index, samples
 
     @property
@@ -42,15 +42,14 @@ class TestSuite(Object):
         return len(self._context)
 
     @property
-    def n_programs(self) -> int:
-        return len(self._programs)
+    def n_queries(self) -> int:
+        return len(self._queries)
 
     @property
-    def _premise(self) -> str:
-        assert "premise" in self._suite
-        assert isinstance(self._suite["premise"], str)
-        assert self._suite["premise"][:2] == ";;"
-        return self._suite["premise"]
+    def _pretext(self) -> str:
+        assert "pretext" in self._suite
+        assert isinstance(self._suite["pretext"], str)
+        return self._suite["pretext"]
 
     @property
     def _context(self) -> typing.List[typing.Dict[str, typing.Any]]:
@@ -60,24 +59,21 @@ class TestSuite(Object):
         assert all(isinstance(c, dict) for c in self._suite["context"])
         assert all(("text" in c) and ("expected" in c) for c in self._suite["context"])
         assert all(isinstance(c["text"], str) for c in self._suite["context"])
-        assert all(c["text"][:2] == ";;" for c in self._suite["context"])
         assert all(isinstance(c["expected"], int) for c in self._suite["context"])
         return self._suite["context"]
 
     @property
-    def _query(self) -> str:
-        assert "query" in self._suite
-        assert isinstance(self._suite["query"], str)
-        assert self._suite["query"][:2] == ";;"
-        return self._suite["query"]
+    def _posttext(self) -> str:
+        assert "posttext" in self._suite
+        assert isinstance(self._suite["posttext"], str)
+        return self._suite["posttext"]
 
     @property
-    def _programs(self) -> list[str]:
-        assert "programs" in self._suite
-        assert isinstance(self._suite["programs"], list)
-        assert all(isinstance(p, str) for p in self._suite["programs"])
-        assert all((p[0] == "(") and (p[-1] == ")") for p in self._suite["programs"])
-        return self._suite["programs"]
+    def _queries(self) -> list[str]:
+        assert "queries" in self._suite
+        assert isinstance(self._suite["queries"], list)
+        assert all(isinstance(p, str) for p in self._suite["queries"])
+        return self._suite["queries"]
 
     def _load(self, prompt: str, suite: str) -> dict:
         suite_file = (

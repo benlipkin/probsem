@@ -1,5 +1,1 @@
-;; This Church program ...
-
-...
-
-;; Now, let us translate some user-defined statements.
+This is a prompt. Everything in this file forms the initial context for a benchmark evaluation.

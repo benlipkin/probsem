@@ -1,17 +1,23 @@
 {
-    "premise": ";; PREMISE",
+    "pretext": "This is a benchmark file. It contains a list of queries and contexts. The queries are evaluated contextualized on the prompt and each context. Pretext and postext can be used to add prefixes and affixes to the context that are identical across variations.",
     "context": [
         {
-            "text": ";; CONTEXT1", 
+            "text": "This is the text of a context. It is used to contextualize the queries.", 
             "expected": 0
         }, {
-            "text": ";; CONTEXT2", 
+            "text": "Each context may include an expected int, specifying the index of the query that is expected to have the highest score. If unknown, expected should be set to -1.", 
+            "expected": -1
+        },{
+            "text": "To include multiline entries in pretex, context, posttext, or queries, the \n character may be used, but the final string must all sit on a single line for the purposes of JSON parsing.", 
             "expected": 1
         }
     ],
-    "query": ";; QUERY",
-    "programs": [
-        "(PROGRAM1)",
-        "(PROGRAM2)"
+    "posttext": "This is the posttext. It is used to contextualize the queries, and is identical across all contexts. This and the pretext are optional and can be left blank in which case the context is used as is.",
+    "queries": [
+        "Queries can take the form of any string. They are the last line of the text passed to any model, and are the strings that ultimately get scored.",
+        "Each of these is thus conditioned on the concatenation of the prompt, the pretext, the context, and the posttext, in that order.",
+        "Since any string is a valid query, they can include natural languages, formal languages, source code, or any combination thereof with string representation.",
+        "The scores of these strings are initially calculated as raw logprobs under the model, and can then be normalized by the length of the string if desired.",
+        "In addition to these raw or normalized logit scores, probabilties can be calculated by passing these scores through a softmax function with a temperature parameter."
     ]
 }

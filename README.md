@@ -4,13 +4,15 @@
 
 ## Summary
 
-This repository explores the efficacy of large language models trained jointly on natural text and source code to act as probabilistic semantic parsers.
+This repository provides a pipeline that uses LLMs to calculate probabilities over strings (e.g., natural language text, source code, etc.) within enumerated hypothesis spaces, conditioned on custom prompts and flexible context.
 
-This work extends the notion of using LLMs for natural language guided program synthesis from single programs to distributions over programs.
+The repo was initially developed to explore the efficacy of large language models trained jointly on natural text and source code to act as probabilistic semantic parsers, extending the notion of using LLMs for natural language guided program synthesis from single programs to distributions over programs.
+
+This initial use case informed initial library design, but it has since been modified to be more general.
 
 ## Version Note
 
-This branch is currently under development, and should be considered unstable. To replicate specific papers, `git checkout` the corresponding branch, e.g., `CoCoSci2022`, and follow instructions in the corresponding `README.md`.
+The `main` branch is under development and evolving. To replicate specific papers, `git checkout` the corresponding branch, e.g., `CogSci2023`, and follow instructions in the corresponding `README.md`.
 
 ## Getting Started
 
@@ -18,32 +20,29 @@ Requirements: [Anaconda](https://conda.io/projects/conda/en/latest/user-guide/in
 
 ```bash
 # download the repo
-git clone git@github.com:benlipkin/probsem.git
+git clone --branch main --depth 1 git@github.com:benlipkin/probsem.git
 
 # build environment
 make env
 
 # test installation
 make test
+
+# NOTE: to use OpenAI models, place an API key at ~/.openai_api_key
 ```
 
 ## Run
 
 ```bash
-### REPLICATE PAPER RESULTS:
-
-# a full pipeline from env to figures is provided
-make paper
-
-### RUN CUSTOM ANALYSIS:
-
-# write an example test suite in inputs folder, e.g.,
-nano inputs/domain.txt
-nano inputs/domain_benchmark.json
+# write a sample test suite in inputs folder, e.g.,
+nano inputs/prompt.txt
+nano inputs/prompt_benchmark.json
+# (check out the example files in inputs for more details on structure)
 
 # then, score that test suite on the command line
 conda activate probsem
-python -m probsem --prompt domain --suite benchmark
+python -m probsem --prompt prompt --test benchmark
+# additional args provided for token-level norming and softmax temp
 
 # default model is OpenAI code-davinci-002
 # all OpenAI and HuggingFace causal models supported

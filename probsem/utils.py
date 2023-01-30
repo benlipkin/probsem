@@ -17,10 +17,6 @@ def tokenize(text: str) -> typing.List[str]:
     return tokens
 
 
-def detokenize(text: str) -> str:
-    return text.replace("; ;", ";;").replace("( ", "(").replace(" )", ")")
-
-
 def normalize(weights: npt.NDArray[np.float64]) -> npt.NDArray[np.float64]:
     return np.exp(weights) / np.sum(np.exp(weights))
 
@@ -30,8 +26,8 @@ def print_sample(sample: typing.Dict[str, typing.Any]) -> str:
     ostream.append("\nText:")
     ostream.append(f"{sample['text'][0]}")
     ostream.append("\nScores:")
-    for _, (program, score) in enumerate(zip(sample["programs"], sample["scores"])):
-        ostream.append(f"{score:.3f}\t{program}")
+    for _, (query, score) in enumerate(zip(sample["queries"], sample["scores"])):
+        ostream.append(f"{score:.3f}\t{query}")
     if sample["correct"] == -1:
         ostream.append("")
     elif np.argmax(sample["scores"]) == sample["correct"]:

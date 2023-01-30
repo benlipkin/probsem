@@ -11,15 +11,17 @@ import torch
 from transformers import AutoConfig, AutoTokenizer, AutoModelForCausalLM
 
 from probsem.abstract import Object, IModel
-from probsem.utils import tokenize, detokenize
+from probsem.utils import tokenize
 
 openai.api_key_path = str(pathlib.Path.home() / ".openai_api_key")
 
 
 class Model(Object):
-    def __init__(self, model_id: str) -> None:
+    def __init__(self, model_id: str, norm: bool, temp: float) -> None:
         super().__init__()
         self._id = model_id
+        self._norm = norm
+        self._temp = temp
         self._model: IModel
         openai_engines = [engine["id"] for engine in openai.Engine.list()["data"]]
         if self._id in openai_engines:
@@ -33,13 +35,11 @@ class Model(Object):
         self,
         full_text: str,
         eval_text: str,
-        normalize: bool = True,
-        temperature: float = 1.0,
     ) -> np.float64:
         logp, num_eval = self._model.score(full_text, eval_text)
-        if normalize:
-            logp /= np.sqrt(num_eval)
-        return logp / temperature
+        if self._norm:
+            logp /= num_eval
+        return logp / self._temp
 
 
 class OpenAIModel(Object, IModel):
@@ -118,7 +118,7 @@ class HuggingFaceModel(Object, IModel):
         ).to(self._device)
 
     def _decode_text(self, tokens: torch.Tensor) -> str:
-        return detokenize(self._tokenizer.decode(tokens, skip_special_tokens=True))
+        return self._tokenizer.decode(tokens, skip_special_tokens=True)
 
     def score(self, full_text: str, eval_text: str) -> typing.Tuple[np.float64, int]:
         with torch.no_grad():
