@@ -1,5 +1,16 @@
-This is a prompt. 
-Everything in this file forms the initial context for a benchmark evaluation.
-In other words, f"{prompt}\n{text}\n{query}" gets passed to the model, 
-where text = f"{pretext}\n{context}\n{posttext}", and query is what gets scored,
-returning back P(query|everything else in order).
+This next section will involve a reading comprehension test. 
+
+Please read the following paragraph, and answer any questions that follow.
+
+The following was sourced from the top of https://en.wikipedia.org/wiki/Wikipedia:Large_language_models on 01/30/2023
+
+"""
+Large language models (LLMs) such as GPT-3 are increasingly being used to generate text.
+These tools should be used with care, since they can generate content that is biased, non-verifiable, constitutes original research, or fails to follow our other policies and guidelines.
+Editors retain full responsibility for LLM-assisted edits, which should still comply with all relevant Wikipedia policies.
+While the use of LLMs is not prohibited, their use should be reserved to experienced editors, who should carefully scrutinize their LLM-assisted edits before hitting Publish. 
+The use of such programs to create whole articles or generate passages from scratch is forbidden.
+Furthermore, LLM use must be declared in the edit summary.
+"""
+
+Based on the above paragraph, please answer the following questions.

@@ -1,0 +1,16 @@
+{
+    "pretext": "The following questions are based on the above text, and should be answered via Multiple Choice response.",
+    "context": [
+        {
+            "text": "Based on the above passage, the author believes that LLM use for writing is as a whole:\nA) Only positive.\nB) Mostly positive.\nC) Mostly negative.\nD) Only negative.", 
+            "expected": -1
+        }
+    ],
+    "posttext": "The correct answer is:",
+    "queries": [
+        "A",
+        "B",
+        "C",
+        "D"
+    ]
+}

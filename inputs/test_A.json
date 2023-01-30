@@ -1,23 +1,17 @@
 {
-    "pretext": "This is a benchmark file. It contains a list of queries and contexts. The queries are evaluated contextualized on the prompt and each context. Pretext and postext can be used to add prefixes and affixes to the context that are identical across variations.",
+    "pretext": "The following questions are based on the above text, and should be answered True or False.",
     "context": [
         {
-            "text": "This is the text of a context. It is used to contextualize the queries.", 
+            "text": "The author is discussing the role of LLMs in Wikipedia editing.", 
             "expected": 0
         }, {
-            "text": "Each context may include an expected int, specifying the index of the query that is expected to have the highest score. If unknown, expected should be set to -1.", 
-            "expected": -1
-        },{
-            "text": "To include multiline entries in pretex, context, posttext, or queries, the \n character may be used, but the final string must all sit on a single line for the purposes of JSON parsing.", 
+            "text": "LLM use for wikipedia editing is accepted without restrictions.", 
             "expected": 1
         }
     ],
-    "posttext": "This is the posttext. It is used to contextualize the queries, and is identical across all contexts. This and the pretext are optional and can be left blank in which case the context is used as is.",
+    "posttext": "The correct answer is:",
     "queries": [
-        "Queries can take the form of any string. They are the last line of the text passed to any model, and are the strings that ultimately get scored.",
-        "Each of these is thus conditioned on the concatenation of the prompt, the pretext, the context, and the posttext, in that order.",
-        "Since any string is a valid query, they can include natural languages, formal languages, source code, or any combination thereof with string representation.",
-        "The scores of these strings are initially calculated as raw logprobs under the model, and can then be normalized by the length of the string if desired.",
-        "In addition to these raw or normalized logit scores, probabilties can be calculated by passing these scores through a softmax function with a temperature parameter."
+        "True",
+        "False"
     ]
 }
