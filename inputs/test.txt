@@ -1,1 +1,5 @@
-This is a prompt. Everything in this file forms the initial context for a benchmark evaluation.
+This is a prompt. 
+Everything in this file forms the initial context for a benchmark evaluation.
+In other words, f"{prompt}\n{text}\n{query}" gets passed to the model, 
+where text = f"{pretext}\n{context}\n{posttext}", and query is what gets scored,
+returning back P(query|everything else in order).
