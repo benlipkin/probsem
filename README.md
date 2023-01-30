@@ -48,6 +48,17 @@ python -m probsem --prompt prompt --test benchmark
 # all OpenAI and HuggingFace causal models supported
 ```
 
+## Citation
+
+```bibtex
+@software{LipkinProbSem2023,
+  author = {Lipkin, Benjamin},
+  title = {ProbSem: LLM-mediated probabilistic semantic parsing.},
+  url = {https://github.com/benlipkin/probsem},
+  year = {2023}
+}
+```
+
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
