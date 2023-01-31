@@ -107,7 +107,7 @@ Optional arguments (and other relevant internal details):
 
 ### API
 
-An API is also supported for integration with existing applications. To run the same default example from above, the following code will suffice.
+An API is also supported for integration with existing applications. To run the same default example from above, the following code will suffice. All optional parameters are available as well.
 
 ```python
 from probsem.probsem import ProbSem
