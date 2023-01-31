@@ -63,7 +63,7 @@ class ProbSem(Object):
             table["score"].extend(sample["scores"])
         pd.DataFrame(table).to_csv(fname, index=False)
 
-    def run(self) -> None:
+    def run(self) -> typing.List[typing.Dict[str, typing.Any]]:
         samples = []
         for sample in tqdm(self._samples, total=self._suite.n_examples):
             assert len(set(sample["prompt"])) == 1
@@ -80,3 +80,4 @@ class ProbSem(Object):
             self.info(print_sample(sample))
         self.info(print_summary(samples))
         self._export_results_table(samples)
+        return samples

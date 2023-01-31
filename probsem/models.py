@@ -21,6 +21,8 @@ class Model(Object):
         super().__init__()
         self._id = model_id
         self._norm = norm
+        if temp <= 0:
+            raise ValueError("Temperature must be positive.")
         self._temp = temp
         self._model: IModel
         openai_engines = [engine["id"] for engine in openai.Engine.list()["data"]]
