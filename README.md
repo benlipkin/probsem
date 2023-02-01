@@ -2,7 +2,7 @@
 
 ## Version
 
-Anonymous resources for the paper `Investigating amortized pragmatic inference with large language models`.
+Anonymous resources for the paper `LLMs are pretty strong pragmatic reasoners: Investigating amortized inferences about gradable adjectives in large language models`.
 
 ## Getting Started
 
