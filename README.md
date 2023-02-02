@@ -57,7 +57,7 @@ In each of these examples, a user may define a flexible frame of reference using
 
 ### Version Note
 
-_The name of this repository `ProbSem` is a legacy reference to the original use case for which it was developed: **Prob**abilistic **Sem**antic Parsing. It was generalized into its current form after expressed interest from collaborators and colleagues._
+_The name of this repository `ProbSem` is a legacy reference to the original use case for which it was developed: Evaluations of **Prob**abilistic **Sem**antics and Pragmatics. It was generalized into its current form after expressed interest from collaborators and colleagues._
 
 As such the `main` branch is under development and evolving. To replicate specific papers, `git checkout` the corresponding paper branch and follow instructions in the associated `README.md`.
 
