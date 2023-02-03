@@ -11,7 +11,6 @@ import torch
 from transformers import AutoConfig, AutoTokenizer, AutoModelForCausalLM
 
 from probsem.abstract import Object, IModel
-from probsem.utils import tokenize
 
 openai.api_key_path = str(pathlib.Path.home() / ".openai_api_key")
 
@@ -115,9 +114,7 @@ class HuggingFaceModel(Object, IModel):
 
     @functools.lru_cache(maxsize=128)
     def _encode_text(self, text: str) -> typing.Dict[str, torch.Tensor]:
-        return self._tokenizer(
-            tokenize(text), is_split_into_words=True, return_tensors="pt"
-        ).to(self._device)
+        return self._tokenizer(text, return_tensors="pt").to(self._device)
 
     def _decode_text(self, tokens: torch.Tensor) -> str:
         return self._tokenizer.decode(tokens, skip_special_tokens=True)

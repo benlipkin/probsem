@@ -1,20 +1,12 @@
 import re
 import typing
 
-import nltk
 import numpy as np
 import numpy.typing as npt
 
 
 def sanitize_filename(text: str) -> str:
     return re.sub(r"^[ .]|[/<>:\"\\|?*]+|[ .]$", "-", text)
-
-
-def tokenize(text: str) -> typing.List[str]:
-    text = text.replace("\n", " NEWLINE ").replace("'", " ` ")
-    tokens = nltk.tokenize.treebank.TreebankWordTokenizer().tokenize(text)
-    tokens = [t.replace("NEWLINE", "\n").replace("`", "'") for t in tokens]
-    return tokens
 
 
 def normalize(weights: npt.NDArray[np.float64]) -> npt.NDArray[np.float64]:
