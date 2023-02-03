@@ -3,8 +3,26 @@ from setuptools import find_packages, setup
 with open("README.md") as readme_file:
     readme = readme_file.read()
 
-with open("requirements.txt") as reqs_file:
-    requirements = reqs_file.read().split("\n")
+requirements = [
+    "numpy",
+    "openai",
+    "pandas",
+    "torch",
+    "transformers",
+    "accelerate",
+]
+
+test_requirements = [
+    "mypy",
+    "lxml",
+    "tqdm-stubs",
+    "pylint",
+    "pylint-json2html",
+    "pylint-exit",
+    "pytest",
+    "pytest-html",
+    "coverage",
+]
 
 setup(
     name="probsem",
@@ -16,5 +34,6 @@ setup(
     license="MIT",
     packages=find_packages(where="probsem"),
     install_requires=requirements,
+    extras_require={"test": test_requirements},
     python_requires=">=3.10",
 )

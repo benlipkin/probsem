@@ -1,7 +1,7 @@
 SHELL := /usr/bin/env bash
 EXEC = python=3.10
 PACKAGE = probsem
-INSTALL = pip install -e .
+INSTALL = python -m pip install
 ACTIVATE = source activate $(PACKAGE)
 .DEFAULT_GOAL := help
 
@@ -20,7 +20,7 @@ update :
 env : $(PACKAGE).egg-info/
 $(PACKAGE).egg-info/ : setup.py requirements.txt
 	@conda create -yn $(PACKAGE) $(EXEC)
-	@$(ACTIVATE) ; $(INSTALL)
+	@$(ACTIVATE) ; $(INSTALL) -r requirements.txt ; $(INSTALL) -e ".[test]"
 
 ## test      : run testing pipeline.
 .PHONY : test

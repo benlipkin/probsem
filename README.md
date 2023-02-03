@@ -63,20 +63,36 @@ As such the `main` branch is under development and evolving. To replicate specif
 
 ## Getting Started
 
-Requirements: [Anaconda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html), [GNU Make](https://www.gnu.org/software/make/manual/make.html)
-
+### Download the repo:
 ```bash
-# download the repo
 git clone --branch main --depth 1 git@github.com:benlipkin/probsem.git
-
-# build environment
-make env
-
-# test installation
-make test
-
-# NOTE: to use OpenAI models, an API key is required at ~/.openai_api_key
 ```
+### Build environment:
+
+_Note: Multiple installation strategies are provided._
+
+- [Anaconda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html), [Make](https://www.gnu.org/software/make/manual/make.html): automatically build and populate virtual environment (recommended).
+    ```bash
+    make env
+    ```
+    Can test installation via:
+    ```bash
+    make test
+    ```
+
+
+- pip[strict]: install exact dependencies used during development into current environment.
+    ```bash
+    python -m pip install -r requirements.txt
+    ```
+
+- pip[flexible]: install general dependencies with fewer version specifications at discretion of user.
+    ```bash
+    python -m pip install -e .
+    ```
+
+### Setup API Key:
+To use OpenAI models, an API key must be placed at `~/.openai_api_key`
 
 ## Run
 
