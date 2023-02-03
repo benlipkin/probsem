@@ -4,9 +4,9 @@
 
 ## Summary
 
-This repository provides a framework to leverage large language models (LLMs) to assign context-conditional probability distributions over queried strings.
+This repository provides a framework to leverage large language models (LLMs) to assign context-conditional probability distributions over queried strings, with default support for all OpenAI engines and HuggingFace CausalLM models.
 
-It is intended to be flexible and support a wide range of research applications spanning linguistics, cognitive science, program synthesis, and NLP.
+It is intended to be flexible across a wide range of research applications spanning linguistics, cognitive science, program synthesis, and NLP.
 
 Here are a few examples:
 
