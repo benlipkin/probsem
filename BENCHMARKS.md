@@ -82,10 +82,3 @@ Let's check out `inputs/test_B.json` next, which poses a different question form
 ```
 
 As shown above, the text of the `pretext`, `context`, `posttext`, or any of the `queries` may also be a multiline entry. However, for JSON parsing purposes, these must be written on a single line, and the character `\n` used explicitly to represent any line breaks.
-
-Now try making your own:
-
-```bash
-nano inputs/prompt.txt
-nano inputs/prompt_testsute.json
-```

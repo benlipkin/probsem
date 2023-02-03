@@ -1,4 +1,4 @@
-[![Tests](https://github.com/benlipkin/probsem/actions/workflows/testing.yml/badge.svg)](https://github.com/benlipkin/probsem/actions/workflows/testing.yml)
+[![Tests](https://github.com/benlipkin/probsem/actions/workflows/testing.yml/badge.svg)](https://github.com/benlipkin/probsem/actions/workflows/testing.yml) [![DOI](https://zenodo.org/badge/558137294.svg)](https://zenodo.org/badge/latestdoi/558137294)
 
 # ProbSem
 
@@ -145,8 +145,9 @@ If you find any particular aspects of this repository unclear, or if you encount
 @software{LipkinProbSem2023,
   author = {Lipkin, Benjamin},
   title = {ProbSem},
+  year = {2023},
   url = {https://github.com/benlipkin/probsem},
-  year = {2023}
+  doi = {10.5281/zenodo.7603078}
 }
 ```
 
