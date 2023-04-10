@@ -16,10 +16,14 @@ def normalize(weights: npt.NDArray[np.float64]) -> npt.NDArray[np.float64]:
 def print_sample(sample: typing.Dict[str, typing.Any]) -> str:
     ostream = []
     ostream.append("\nText:")
+    ostream.append('"""')
     ostream.append(f"{sample['text'][0]}")
+    ostream.append('"""')
     ostream.append("\nScores:")
+    ostream.append('"""')
     for _, (query, score) in enumerate(zip(sample["queries"], sample["scores"])):
         ostream.append(f"{score:.3f}\t{query}")
+    ostream.append('"""')
     if sample["correct"] == -1:
         ostream.append("")
     elif np.argmax(sample["scores"]) == sample["correct"]:

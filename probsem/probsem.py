@@ -59,7 +59,7 @@ class ProbSem(Object):
         for sample in samples:
             table["text"].extend(sample["text"])
             table["query"].extend(sample["queries"])
-            table["weights"].extend(sample["weights"])
+            table["logp"].extend(sample["logp"])
             table["score"].extend(sample["scores"])
         pd.DataFrame(table).to_csv(fname, index=False)
 
@@ -69,13 +69,13 @@ class ProbSem(Object):
             assert len(set(sample["prompt"])) == 1
             assert len(set(sample["text"])) == 1
             assert len(set(sample["queries"])) == self._suite.n_queries
-            sample["weights"] = []
+            sample["logp"] = []
             for prompt, text, query in zip(
                 sample["prompt"], sample["text"], sample["queries"]
             ):
-                sample["weights"].append(self._score(prompt, text, query))
-            sample["weights"] = np.array(sample["weights"])
-            sample["scores"] = normalize(sample["weights"])
+                sample["logp"].append(self._score(prompt, text, query))
+            sample["logp"] = np.array(sample["logp"])
+            sample["scores"] = normalize(sample["logp"])
             samples.append(sample)
             self.info(print_sample(sample))
         self.info(print_summary(samples))
