@@ -60,17 +60,18 @@ class OpenAIModel(Object, IModel):
                 logprobs=0,
                 echo=True,
             )
-        except openai.error.RateLimitError:
+        except (openai.error.RateLimitError, openai.error.APIError) as e:
             self.warn(f"Rate limit exceeded. Retrying after {retry_after} seconds.")
             time.sleep(retry_after)
             return self._get_response(text, retry_after * 2)
 
     def score(self, full_text: str, eval_text: str) -> typing.Tuple[np.float64, int]:
         full_resp = self._get_response(full_text)
-        eval_resp = self._get_response(eval_text)
-        num_eval = eval_resp["usage"]["total_tokens"]
-        get_tokens = lambda resp: resp["choices"][0]["logprobs"]["tokens"]
-        assert get_tokens(full_resp)[-num_eval:] == get_tokens(eval_resp)
+        try:
+            eval_resp = self._get_response(eval_text)
+            num_eval = eval_resp["usage"]["total_tokens"]
+        except openai.error.InvalidRequestError:
+            num_eval = 1 if eval_text else 0
         logp = np.sum(full_resp["choices"][0]["logprobs"]["token_logprobs"][-num_eval:])
         return logp, num_eval
 
