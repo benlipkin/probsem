@@ -2,7 +2,9 @@
 
 ## Version
 
-Anonymous resources for the paper `Investigating amortized pragmatic inference with large language models`.
+Resources for the paper `Evaluating statistical language models as pragmatic reasoners` presented at `CogSci2023`.
+
+For the most recent version of the `ProbSem` library, checkout the `main` branch.
 
 ## Getting Started
 
@@ -10,7 +12,7 @@ Requirements: [Anaconda](https://conda.io/projects/conda/en/latest/user-guide/in
 
 ```bash
 # download the repo
-git clone git@github.com:ANONYMOUS/probsem.git
+git clone --branch CogSci2023 git@github.com:benlipkin/probsem.git
 
 # build environment
 make env
@@ -27,6 +29,8 @@ make test
 # a full pipeline from env to figures is provided
 make paper
 
+# the results are also available in `outputs`
+
 ### RUN CUSTOM ANALYSIS:
 
 # write an example test suite in inputs folder, e.g.,
@@ -39,6 +43,16 @@ python -m probsem --prompt domain --suite benchmark
 
 # default model is OpenAI code-davinci-002
 # all OpenAI and HuggingFace causal models supported
+```
+
+## Citation
+```bibtex
+@inproceedings{Lipkin2023,
+	author = {Lipkin, Benjamin and Wong, Lionel and Grand, Gabriel and Tenenbaum, Josh},
+	title = {Evaluating statistical language models as pragmatic reasoners},
+	year = {2023},
+	journal = {Proceedings of the annual meeting of the cognitive science society},
+}
 ```
 
 ## License
