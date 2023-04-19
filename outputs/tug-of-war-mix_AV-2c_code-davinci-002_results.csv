@@ -1,0 +1,67 @@
+text,program,weights,score
+;; Jack has at least average strength for someone new to the game.,(condition (> (strength 'jack) 0)),-3.6592123783918025,0.07221047773020671
+;; Jack has at least average strength for someone new to the game.,(condition (> (strength 'jack) 10)),-3.479098427560024,0.08646148953525273
+;; Jack has at least average strength for someone new to the game.,(condition (> (strength 'jack) 20)),-3.256672826589062,0.10799929594654405
+;; Jack has at least average strength for someone new to the game.,(condition (> (strength 'jack) 30)),-2.7970271252300596,0.17101827282997284
+;; Jack has at least average strength for someone new to the game.,(condition (> (strength 'jack) 40)),-3.045955329389742,0.1333319929199294
+;; Jack has at least average strength for someone new to the game.,(condition (> (strength 'jack) 50)),-2.9478355349427616,0.1470778443087616
+;; Jack has at least average strength for someone new to the game.,(condition (> (strength 'jack) 60)),-3.5540325856147543,0.08021936535978048
+;; Jack has at least average strength for someone new to the game.,(condition (> (strength 'jack) 70)),-3.69225880164435,0.06986317825906911
+;; Jack has at least average strength for someone new to the game.,(condition (> (strength 'jack) 80)),-4.078191022072779,0.04749414843480518
+;; Jack has at least average strength for someone new to the game.,(condition (> (strength 'jack) 90)),-4.418719164671953,0.0337870762534835
+;; Jack has at least average strength for someone new to the game.,(condition (> (strength 'jack) 100)),-4.016094594876205,0.050536858422194415
+;; Jack has at least average strength for someone with a bit of experience.,(condition (> (strength 'jack) 0)),-3.9445270158015853,0.06959306226361131
+;; Jack has at least average strength for someone with a bit of experience.,(condition (> (strength 'jack) 10)),-4.054805409882083,0.06232648701503925
+;; Jack has at least average strength for someone with a bit of experience.,(condition (> (strength 'jack) 20)),-3.7781670937661542,0.08218927378276343
+;; Jack has at least average strength for someone with a bit of experience.,(condition (> (strength 'jack) 30)),-3.455139799905561,0.11352829467538955
+;; Jack has at least average strength for someone with a bit of experience.,(condition (> (strength 'jack) 40)),-3.2897660547132572,0.13394454129364958
+;; Jack has at least average strength for someone with a bit of experience.,(condition (> (strength 'jack) 50)),-3.070147119998011,0.16684158644343558
+;; Jack has at least average strength for someone with a bit of experience.,(condition (> (strength 'jack) 60)),-3.4060790789087405,0.1192369654204918
+;; Jack has at least average strength for someone with a bit of experience.,(condition (> (strength 'jack) 70)),-3.7325484772173723,0.08602547048509789
+;; Jack has at least average strength for someone with a bit of experience.,(condition (> (strength 'jack) 80)),-4.0614695903446165,0.06191251298887647
+;; Jack has at least average strength for someone with a bit of experience.,(condition (> (strength 'jack) 90)),-4.451363184297511,0.04192275313369899
+;; Jack has at least average strength for someone with a bit of experience.,(condition (> (strength 'jack) 100)),-4.052360557522221,0.06247905249794619
+;; Jack has at least average strength for someone with many years of experience.,(condition (> (strength 'jack) 0)),-3.8215947281354543,0.07229609666912366
+;; Jack has at least average strength for someone with many years of experience.,(condition (> (strength 'jack) 10)),-3.957649634198666,0.06309965068681335
+;; Jack has at least average strength for someone with many years of experience.,(condition (> (strength 'jack) 20)),-3.801282335960322,0.0737796192766301
+;; Jack has at least average strength for someone with many years of experience.,(condition (> (strength 'jack) 30)),-3.589866258105729,0.09114928070477646
+;; Jack has at least average strength for someone with many years of experience.,(condition (> (strength 'jack) 40)),-3.563107114509371,0.09362128423952447
+;; Jack has at least average strength for someone with many years of experience.,(condition (> (strength 'jack) 50)),-3.2025074162718408,0.13427063825495378
+;; Jack has at least average strength for someone with many years of experience.,(condition (> (strength 'jack) 60)),-3.274178729279799,0.1249840511777643
+;; Jack has at least average strength for someone with many years of experience.,(condition (> (strength 'jack) 70)),-3.269703038805722,0.12554469480280647
+;; Jack has at least average strength for someone with many years of experience.,(condition (> (strength 'jack) 80)),-3.664989071004881,0.08455276664930454
+;; Jack has at least average strength for someone with many years of experience.,(condition (> (strength 'jack) 90)),-4.058650809086957,0.05703779160629694
+;; Jack has at least average strength for someone with many years of experience.,(condition (> (strength 'jack) 100)),-3.724545497175875,0.07966412593200609
+;; Jack is very strong for someone new to the game.,(condition (> (strength 'jack) 0)),-4.510813820264117,0.04115895640575408
+;; Jack is very strong for someone new to the game.,(condition (> (strength 'jack) 10)),-4.0991699167586,0.062121084705173336
+;; Jack is very strong for someone new to the game.,(condition (> (strength 'jack) 20)),-3.93650127811268,0.07309457117180683
+;; Jack is very strong for someone new to the game.,(condition (> (strength 'jack) 30)),-3.6933430113085373,0.09321534602209132
+;; Jack is very strong for someone new to the game.,(condition (> (strength 'jack) 40)),-3.523345088364802,0.11048837236668703
+;; Jack is very strong for someone new to the game.,(condition (> (strength 'jack) 50)),-3.385398232687123,0.12683120952875732
+;; Jack is very strong for someone new to the game.,(condition (> (strength 'jack) 60)),-3.509980677158182,0.11197489553672041
+;; Jack is very strong for someone new to the game.,(condition (> (strength 'jack) 70)),-3.679671245687015,0.0944985159976671
+;; Jack is very strong for someone new to the game.,(condition (> (strength 'jack) 80)),-3.641467273745611,0.09817858366155975
+;; Jack is very strong for someone new to the game.,(condition (> (strength 'jack) 90)),-3.7129669867050232,0.09140392216507963
+;; Jack is very strong for someone new to the game.,(condition (> (strength 'jack) 100)),-3.6531883536074052,0.09703454243870319
+;; Jack is very strong for someone with a bit of experience.,(condition (> (strength 'jack) 0)),-4.765712076401776,0.039171006021897756
+;; Jack is very strong for someone with a bit of experience.,(condition (> (strength 'jack) 10)),-4.2846354109457145,0.06337145327759182
+;; Jack is very strong for someone with a bit of experience.,(condition (> (strength 'jack) 20)),-4.292522443863208,0.06287360638768939
+;; Jack is very strong for someone with a bit of experience.,(condition (> (strength 'jack) 30)),-4.1430428102579695,0.07301070666015591
+;; Jack is very strong for someone with a bit of experience.,(condition (> (strength 'jack) 40)),-3.767917183580128,0.10624329751991105
+;; Jack is very strong for someone with a bit of experience.,(condition (> (strength 'jack) 50)),-3.5056771173628425,0.13809913403993387
+;; Jack is very strong for someone with a bit of experience.,(condition (> (strength 'jack) 60)),-3.4720320882307916,0.1428245307332413
+;; Jack is very strong for someone with a bit of experience.,(condition (> (strength 'jack) 70)),-3.7629709050806097,0.10677010826040682
+;; Jack is very strong for someone with a bit of experience.,(condition (> (strength 'jack) 80)),-3.7738755857272057,0.10561213944198847
+;; Jack is very strong for someone with a bit of experience.,(condition (> (strength 'jack) 90)),-4.0100262974139955,0.08339785668512553
+;; Jack is very strong for someone with a bit of experience.,(condition (> (strength 'jack) 100)),-4.068944426377433,0.07862616097205809
+;; Jack is very strong for someone with many years of experience.,(condition (> (strength 'jack) 0)),-4.560057485348134,0.034282033913065516
+;; Jack is very strong for someone with many years of experience.,(condition (> (strength 'jack) 10)),-4.202279819822153,0.049028369004241436
+;; Jack is very strong for someone with many years of experience.,(condition (> (strength 'jack) 20)),-4.177286093940477,0.05026921267872216
+;; Jack is very strong for someone with many years of experience.,(condition (> (strength 'jack) 30)),-3.9773559496133224,0.06139466610082105
+;; Jack is very strong for someone with many years of experience.,(condition (> (strength 'jack) 40)),-3.80854139650682,0.07268518006173023
+;; Jack is very strong for someone with many years of experience.,(condition (> (strength 'jack) 50)),-3.3204215642597656,0.11842233506497912
+;; Jack is very strong for someone with many years of experience.,(condition (> (strength 'jack) 60)),-3.165081490809718,0.13832381457046164
+;; Jack is very strong for someone with many years of experience.,(condition (> (strength 'jack) 70)),-3.2698355116765514,0.12456695941996265
+;; Jack is very strong for someone with many years of experience.,(condition (> (strength 'jack) 80)),-3.2756277981132285,0.12384751752868411
+;; Jack is very strong for someone with many years of experience.,(condition (> (strength 'jack) 90)),-3.3414646607715546,0.11595639890022928
+;; Jack is very strong for someone with many years of experience.,(condition (> (strength 'jack) 100)),-3.383137104548356,0.11122351275710278

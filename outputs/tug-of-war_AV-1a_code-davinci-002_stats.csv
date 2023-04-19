@@ -1,0 +1,10 @@
+text,js_distance,pval
+;; Jack is strong.,0.2735591835587289,0.0025
+;; Jack is very strong.,0.3103420651958,0.0023
+;; Jack is somewhat strong.,0.25813499215316177,0.0003
+;; Jack is pretty strong.,0.1890525188295458,0.0001
+;; Jack has at least average strength.,0.24929221851263997,0.0086
+;; Jack is not weak.,0.412063341818154,0.0363
+;; Jack is not so weak.,0.2624174105194852,0.002
+;; Jack is not that weak.,0.32384082485655813,0.0055
+;; Jack is not very weak.,0.41908480363180983,0.0482

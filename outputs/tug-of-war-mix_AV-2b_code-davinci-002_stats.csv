@@ -1,0 +1,7 @@
+text,js_distance,pval
+;; Jack has at least average strength for a novice player.,0.11076439530347201,0.0
+;; Jack has at least average strength for a mid-level player.,0.27398975958134586,0.002
+;; Jack has at least average strength for an expert player.,0.23297388821892215,0.0004
+;; Jack is very strong for a novice player.,0.4010396872189778,0.0055
+;; Jack is very strong for a mid-level player.,0.32141892503592656,0.0061
+;; Jack is very strong for an expert player.,0.24991881679943312,0.0008

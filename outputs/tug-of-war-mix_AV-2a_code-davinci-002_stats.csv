@@ -1,0 +1,7 @@
+text,js_distance,pval
+;; Jack has at least average strength for a beginner player.,0.30824683749102294,0.0251
+;; Jack has at least average strength for an intermediate player.,0.26922625100065667,0.0091
+;; Jack has at least average strength for a professional player.,0.2785687510829779,0.0008
+;; Jack is very strong for a beginner player.,0.402258645370454,0.0209
+;; Jack is very strong for an intermediate player.,0.35157003768182415,0.0176
+;; Jack is very strong for a professional player.,0.3582750161544984,0.0

@@ -1,0 +1,199 @@
+source,text,theta,temperature,prob
+model,;; Jack is strong.,0.0,0.2004882812499993,0.0005463470932818727
+model,;; Jack is strong.,10.0,0.2004882812499993,0.0001652852054737162
+model,;; Jack is strong.,20.0,0.2004882812499993,0.0001569635885330302
+model,;; Jack is strong.,30.0,0.2004882812499993,0.0007956289105920522
+model,;; Jack is strong.,40.0,0.2004882812499993,0.007652450168743756
+model,;; Jack is strong.,50.0,0.2004882812499993,0.16684750983590876
+model,;; Jack is strong.,60.0,0.2004882812499993,0.48662809923103956
+model,;; Jack is strong.,70.0,0.2004882812499993,0.16169697934922556
+model,;; Jack is strong.,80.0,0.2004882812499993,0.13599664971216607
+model,;; Jack is strong.,90.0,0.2004882812499993,0.017830884130543966
+model,;; Jack is strong.,100.0,0.2004882812499993,0.021683202774491653
+model,;; Jack is very strong.,0.0,0.2247070312499993,1.4628468266055281e-05
+model,;; Jack is very strong.,10.0,0.2247070312499993,4.530473391476834e-05
+model,;; Jack is very strong.,20.0,0.2247070312499993,3.347235518630863e-05
+model,;; Jack is very strong.,30.0,0.2247070312499993,8.64511657788049e-05
+model,;; Jack is very strong.,40.0,0.2247070312499993,0.00024404277265334257
+model,;; Jack is very strong.,50.0,0.2247070312499993,0.005729494495483764
+model,;; Jack is very strong.,60.0,0.2247070312499993,0.0800588353135735
+model,;; Jack is very strong.,70.0,0.2247070312499993,0.14387955700236482
+model,;; Jack is very strong.,80.0,0.2247070312499993,0.4392554200319779
+model,;; Jack is very strong.,90.0,0.2247070312499993,0.18908690447354515
+model,;; Jack is very strong.,100.0,0.2247070312499993,0.14156588918725563
+model,;; Jack is somewhat strong.,0.0,0.23544921874999933,0.0022095246203640687
+model,;; Jack is somewhat strong.,10.0,0.23544921874999933,0.003826757494671969
+model,;; Jack is somewhat strong.,20.0,0.23544921874999933,0.0111771574072177
+model,;; Jack is somewhat strong.,30.0,0.23544921874999933,0.08122266119218269
+model,;; Jack is somewhat strong.,40.0,0.23544921874999933,0.3179651012916616
+model,;; Jack is somewhat strong.,50.0,0.23544921874999933,0.1974944084161848
+model,;; Jack is somewhat strong.,60.0,0.23544921874999933,0.30723506994546784
+model,;; Jack is somewhat strong.,70.0,0.23544921874999933,0.05443671312078425
+model,;; Jack is somewhat strong.,80.0,0.23544921874999933,0.018709751326365015
+model,;; Jack is somewhat strong.,90.0,0.23544921874999933,0.0013560308058261658
+model,;; Jack is somewhat strong.,100.0,0.23544921874999933,0.004366824379273965
+model,;; Jack is pretty strong.,0.0,0.2388671874999993,0.00017417321261957374
+model,;; Jack is pretty strong.,10.0,0.2388671874999993,0.00031970570096359255
+model,;; Jack is pretty strong.,20.0,0.2388671874999993,0.0003817885368638356
+model,;; Jack is pretty strong.,30.0,0.2388671874999993,0.001723312660055852
+model,;; Jack is pretty strong.,40.0,0.2388671874999993,0.020306695325855995
+model,;; Jack is pretty strong.,50.0,0.2388671874999993,0.1323923585935598
+model,;; Jack is pretty strong.,60.0,0.2388671874999993,0.40613662134598644
+model,;; Jack is pretty strong.,70.0,0.2388671874999993,0.2295514329895421
+model,;; Jack is pretty strong.,80.0,0.2388671874999993,0.1543669583295736
+model,;; Jack is pretty strong.,90.0,0.2388671874999993,0.03023524898830057
+model,;; Jack is pretty strong.,100.0,0.2388671874999993,0.024411704316678596
+model,;; Jack has at least average strength.,0.0,0.2094726562499993,3.246014829804296e-05
+model,;; Jack has at least average strength.,10.0,0.2094726562499993,3.7695889027205786e-06
+model,;; Jack has at least average strength.,20.0,0.2094726562499993,6.4124014081827734e-06
+model,;; Jack has at least average strength.,30.0,0.2094726562499993,3.18147094636447e-05
+model,;; Jack has at least average strength.,40.0,0.2094726562499993,0.0005567173787160656
+model,;; Jack has at least average strength.,50.0,0.2094726562499993,0.9991989788398199
+model,;; Jack has at least average strength.,60.0,0.2094726562499993,9.659996101353695e-05
+model,;; Jack has at least average strength.,70.0,0.2094726562499993,1.784928604206526e-05
+model,;; Jack has at least average strength.,80.0,0.2094726562499993,6.164051671774304e-06
+model,;; Jack has at least average strength.,90.0,0.2094726562499993,2.9448400035957806e-06
+model,;; Jack has at least average strength.,100.0,0.2094726562499993,4.628879466044508e-05
+model,;; Jack is not weak.,0.0,0.2095703124999993,0.012788108108082086
+model,;; Jack is not weak.,10.0,0.2095703124999993,0.02900765547793725
+model,;; Jack is not weak.,20.0,0.2095703124999993,0.09378294195452237
+model,;; Jack is not weak.,30.0,0.2095703124999993,0.29758059487069105
+model,;; Jack is not weak.,40.0,0.2095703124999993,0.33232655971688346
+model,;; Jack is not weak.,50.0,0.2095703124999993,0.2112696847820547
+model,;; Jack is not weak.,60.0,0.2095703124999993,0.013165289729493547
+model,;; Jack is not weak.,70.0,0.2095703124999993,0.005109811640510077
+model,;; Jack is not weak.,80.0,0.2095703124999993,0.003477354770487842
+model,;; Jack is not weak.,90.0,0.2095703124999993,0.000606554055095465
+model,;; Jack is not weak.,100.0,0.2095703124999993,0.0008854448942421704
+model,;; Jack is not so weak.,0.0,0.20322265624999927,0.0049597959147175755
+model,;; Jack is not so weak.,10.0,0.20322265624999927,0.06577117501298867
+model,;; Jack is not so weak.,20.0,0.20322265624999927,0.14168422647711948
+model,;; Jack is not so weak.,30.0,0.20322265624999927,0.3443753317212563
+model,;; Jack is not so weak.,40.0,0.20322265624999927,0.3086230611449115
+model,;; Jack is not so weak.,50.0,0.20322265624999927,0.10161364905134529
+model,;; Jack is not so weak.,60.0,0.20322265624999927,0.027052087815844686
+model,;; Jack is not so weak.,70.0,0.20322265624999927,0.0031691829170079388
+model,;; Jack is not so weak.,80.0,0.20322265624999927,0.0015218004694519832
+model,;; Jack is not so weak.,90.0,0.20322265624999927,0.0001685216755643151
+model,;; Jack is not so weak.,100.0,0.20322265624999927,0.0010611677997924398
+model,;; Jack is not that weak.,0.0,0.2109374999999993,0.004845252517373397
+model,;; Jack is not that weak.,10.0,0.2109374999999993,0.07172153919395373
+model,;; Jack is not that weak.,20.0,0.2109374999999993,0.18246847467785904
+model,;; Jack is not that weak.,30.0,0.2109374999999993,0.40991787896587123
+model,;; Jack is not that weak.,40.0,0.2109374999999993,0.28527148735768554
+model,;; Jack is not that weak.,50.0,0.2109374999999993,0.03509366328457576
+model,;; Jack is not that weak.,60.0,0.2109374999999993,0.007873550660151954
+model,;; Jack is not that weak.,70.0,0.2109374999999993,0.001020495942302123
+model,;; Jack is not that weak.,80.0,0.2109374999999993,0.000631900250613885
+model,;; Jack is not that weak.,90.0,0.2109374999999993,0.00012919998919189008
+model,;; Jack is not that weak.,100.0,0.2109374999999993,0.0010265571604215352
+model,;; Jack is not very weak.,0.0,0.2055664062499993,0.013301325137533966
+model,;; Jack is not very weak.,10.0,0.2055664062499993,0.1452287612052851
+model,;; Jack is not very weak.,20.0,0.2055664062499993,0.19759942093700436
+model,;; Jack is not very weak.,30.0,0.2055664062499993,0.37560358394620824
+model,;; Jack is not very weak.,40.0,0.2055664062499993,0.23214768803244656
+model,;; Jack is not very weak.,50.0,0.2055664062499993,0.0320180457383316
+model,;; Jack is not very weak.,60.0,0.2055664062499993,0.002633678361071816
+model,;; Jack is not very weak.,70.0,0.2055664062499993,0.0004992211230091309
+model,;; Jack is not very weak.,80.0,0.2055664062499993,0.00046168760770469864
+model,;; Jack is not very weak.,90.0,0.2055664062499993,0.00012219288739219136
+model,;; Jack is not very weak.,100.0,0.2055664062499993,0.00038439502401230017
+human,;; Jack has at least average strength.,0.0,,0.0
+human,;; Jack has at least average strength.,10.0,,0.0
+human,;; Jack has at least average strength.,20.0,,0.06896551724137931
+human,;; Jack has at least average strength.,30.0,,0.034482758620689655
+human,;; Jack has at least average strength.,40.0,,0.034482758620689655
+human,;; Jack has at least average strength.,50.0,,0.8275862068965517
+human,;; Jack has at least average strength.,60.0,,0.034482758620689655
+human,;; Jack has at least average strength.,70.0,,0.0
+human,;; Jack has at least average strength.,80.0,,0.0
+human,;; Jack has at least average strength.,90.0,,0.0
+human,;; Jack has at least average strength.,100.0,,0.0
+human,;; Jack is not so weak.,0.0,,0.0
+human,;; Jack is not so weak.,10.0,,0.0
+human,;; Jack is not so weak.,20.0,,0.10344827586206896
+human,;; Jack is not so weak.,30.0,,0.20689655172413793
+human,;; Jack is not so weak.,40.0,,0.3103448275862069
+human,;; Jack is not so weak.,50.0,,0.27586206896551724
+human,;; Jack is not so weak.,60.0,,0.06896551724137931
+human,;; Jack is not so weak.,70.0,,0.034482758620689655
+human,;; Jack is not so weak.,80.0,,0.0
+human,;; Jack is not so weak.,90.0,,0.0
+human,;; Jack is not so weak.,100.0,,0.0
+human,;; Jack is not that weak.,0.0,,0.0
+human,;; Jack is not that weak.,10.0,,0.0
+human,;; Jack is not that weak.,20.0,,0.034482758620689655
+human,;; Jack is not that weak.,30.0,,0.4482758620689655
+human,;; Jack is not that weak.,40.0,,0.2413793103448276
+human,;; Jack is not that weak.,50.0,,0.1724137931034483
+human,;; Jack is not that weak.,60.0,,0.06896551724137931
+human,;; Jack is not that weak.,70.0,,0.034482758620689655
+human,;; Jack is not that weak.,80.0,,0.0
+human,;; Jack is not that weak.,90.0,,0.0
+human,;; Jack is not that weak.,100.0,,0.0
+human,;; Jack is not very weak.,0.0,,0.0
+human,;; Jack is not very weak.,10.0,,0.0
+human,;; Jack is not very weak.,20.0,,0.06896551724137931
+human,;; Jack is not very weak.,30.0,,0.3103448275862069
+human,;; Jack is not very weak.,40.0,,0.20689655172413793
+human,;; Jack is not very weak.,50.0,,0.1724137931034483
+human,;; Jack is not very weak.,60.0,,0.10344827586206896
+human,;; Jack is not very weak.,70.0,,0.10344827586206896
+human,;; Jack is not very weak.,80.0,,0.034482758620689655
+human,;; Jack is not very weak.,90.0,,0.0
+human,;; Jack is not very weak.,100.0,,0.0
+human,;; Jack is not weak.,0.0,,0.0
+human,;; Jack is not weak.,10.0,,0.0
+human,;; Jack is not weak.,20.0,,0.0
+human,;; Jack is not weak.,30.0,,0.06896551724137931
+human,;; Jack is not weak.,40.0,,0.3448275862068966
+human,;; Jack is not weak.,50.0,,0.27586206896551724
+human,;; Jack is not weak.,60.0,,0.20689655172413793
+human,;; Jack is not weak.,70.0,,0.0
+human,;; Jack is not weak.,80.0,,0.06896551724137931
+human,;; Jack is not weak.,90.0,,0.034482758620689655
+human,;; Jack is not weak.,100.0,,0.0
+human,;; Jack is pretty strong.,0.0,,0.0
+human,;; Jack is pretty strong.,10.0,,0.0
+human,;; Jack is pretty strong.,20.0,,0.0
+human,;; Jack is pretty strong.,30.0,,0.0
+human,;; Jack is pretty strong.,40.0,,0.06896551724137931
+human,;; Jack is pretty strong.,50.0,,0.06896551724137931
+human,;; Jack is pretty strong.,60.0,,0.5517241379310345
+human,;; Jack is pretty strong.,70.0,,0.20689655172413793
+human,;; Jack is pretty strong.,80.0,,0.06896551724137931
+human,;; Jack is pretty strong.,90.0,,0.034482758620689655
+human,;; Jack is pretty strong.,100.0,,0.0
+human,;; Jack is somewhat strong.,0.0,,0.0
+human,;; Jack is somewhat strong.,10.0,,0.0
+human,;; Jack is somewhat strong.,20.0,,0.0
+human,;; Jack is somewhat strong.,30.0,,0.06896551724137931
+human,;; Jack is somewhat strong.,40.0,,0.10344827586206896
+human,;; Jack is somewhat strong.,50.0,,0.20689655172413793
+human,;; Jack is somewhat strong.,60.0,,0.5862068965517241
+human,;; Jack is somewhat strong.,70.0,,0.034482758620689655
+human,;; Jack is somewhat strong.,80.0,,0.0
+human,;; Jack is somewhat strong.,90.0,,0.0
+human,;; Jack is somewhat strong.,100.0,,0.0
+human,;; Jack is strong.,0.0,,0.0
+human,;; Jack is strong.,10.0,,0.0
+human,;; Jack is strong.,20.0,,0.0
+human,;; Jack is strong.,30.0,,0.034482758620689655
+human,;; Jack is strong.,40.0,,0.0
+human,;; Jack is strong.,50.0,,0.10344827586206896
+human,;; Jack is strong.,60.0,,0.27586206896551724
+human,;; Jack is strong.,70.0,,0.4482758620689655
+human,;; Jack is strong.,80.0,,0.10344827586206896
+human,;; Jack is strong.,90.0,,0.0
+human,;; Jack is strong.,100.0,,0.034482758620689655
+human,;; Jack is very strong.,0.0,,0.0
+human,;; Jack is very strong.,10.0,,0.0
+human,;; Jack is very strong.,20.0,,0.0
+human,;; Jack is very strong.,30.0,,0.0
+human,;; Jack is very strong.,40.0,,0.0
+human,;; Jack is very strong.,50.0,,0.0
+human,;; Jack is very strong.,60.0,,0.034482758620689655
+human,;; Jack is very strong.,70.0,,0.41379310344827586
+human,;; Jack is very strong.,80.0,,0.4482758620689655
+human,;; Jack is very strong.,90.0,,0.10344827586206896
+human,;; Jack is very strong.,100.0,,0.0

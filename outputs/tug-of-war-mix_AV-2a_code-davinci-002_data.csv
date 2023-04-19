@@ -1,0 +1,133 @@
+source,text,theta,temperature,prob
+model,;; Jack has at least average strength for a beginner player.,0.0,0.14277343749999927,0.0005718199639804761
+model,;; Jack has at least average strength for a beginner player.,10.0,0.14277343749999927,0.00032680933082598494
+model,;; Jack has at least average strength for a beginner player.,20.0,0.14277343749999927,0.004808943140233092
+model,;; Jack has at least average strength for a beginner player.,30.0,0.14277343749999927,0.8612035721839425
+model,;; Jack has at least average strength for a beginner player.,40.0,0.14277343749999927,0.04984238457853957
+model,;; Jack has at least average strength for a beginner player.,50.0,0.14277343749999927,0.081222835342083
+model,;; Jack has at least average strength for a beginner player.,60.0,0.14277343749999927,0.0012311342967492275
+model,;; Jack has at least average strength for a beginner player.,70.0,0.14277343749999927,0.0006733716860751555
+model,;; Jack has at least average strength for a beginner player.,80.0,0.14277343749999927,5.706015311554323e-05
+model,;; Jack has at least average strength for a beginner player.,90.0,0.14277343749999927,7.028267416470347e-06
+model,;; Jack has at least average strength for a beginner player.,100.0,0.14277343749999927,5.504105703912781e-05
+model,;; Jack has at least average strength for an intermediate player.,0.0,0.11728515624999922,3.4227359810026976e-06
+model,;; Jack has at least average strength for an intermediate player.,10.0,0.11728515624999922,6.175119125758679e-07
+model,;; Jack has at least average strength for an intermediate player.,20.0,0.11728515624999922,9.11855575789787e-06
+model,;; Jack has at least average strength for an intermediate player.,30.0,0.11728515624999922,0.0001225794876120723
+model,;; Jack has at least average strength for an intermediate player.,40.0,0.11728515624999922,0.0008653724716148569
+model,;; Jack has at least average strength for an intermediate player.,50.0,0.11728515624999922,0.9986746495816918
+model,;; Jack has at least average strength for an intermediate player.,60.0,0.11728515624999922,0.00026976184974762945
+model,;; Jack has at least average strength for an intermediate player.,70.0,0.11728515624999922,5.093685705994593e-05
+model,;; Jack has at least average strength for an intermediate player.,80.0,0.11728515624999922,2.1610298074339464e-06
+model,;; Jack has at least average strength for an intermediate player.,90.0,0.11728515624999922,1.4486560898726015e-07
+model,;; Jack has at least average strength for an intermediate player.,100.0,0.11728515624999922,1.2350532057289265e-06
+model,;; Jack has at least average strength for a professional player.,0.0,0.10947265624999922,1.188563069138877e-06
+model,;; Jack has at least average strength for a professional player.,10.0,0.10947265624999922,1.2996253327649655e-07
+model,;; Jack has at least average strength for a professional player.,20.0,0.10947265624999922,3.477546410813567e-07
+model,;; Jack has at least average strength for a professional player.,30.0,0.10947265624999922,3.0363243643890574e-06
+model,;; Jack has at least average strength for a professional player.,40.0,0.10947265624999922,8.420036326557418e-06
+model,;; Jack has at least average strength for a professional player.,50.0,0.10947265624999922,0.0022857872872203305
+model,;; Jack has at least average strength for a professional player.,60.0,0.10947265624999922,0.0034073075284732075
+model,;; Jack has at least average strength for a professional player.,70.0,0.10947265624999922,0.9942568497439558
+model,;; Jack has at least average strength for a professional player.,80.0,0.10947265624999922,3.4433510287868296e-05
+model,;; Jack has at least average strength for a professional player.,90.0,0.10947265624999922,4.607080803364762e-07
+model,;; Jack has at least average strength for a professional player.,100.0,0.10947265624999922,2.038581048083309e-06
+model,;; Jack is very strong for a beginner player.,0.0,0.14746093749999928,3.570061952712673e-05
+model,;; Jack is very strong for a beginner player.,10.0,0.14746093749999928,0.0015565745696023562
+model,;; Jack is very strong for a beginner player.,20.0,0.14746093749999928,0.0031267985555244564
+model,;; Jack is very strong for a beginner player.,30.0,0.14746093749999928,0.039361998784217464
+model,;; Jack is very strong for a beginner player.,40.0,0.14746093749999928,0.3686487071029108
+model,;; Jack is very strong for a beginner player.,50.0,0.14746093749999928,0.39405917325427914
+model,;; Jack is very strong for a beginner player.,60.0,0.14746093749999928,0.09908007707206437
+model,;; Jack is very strong for a beginner player.,70.0,0.14746093749999928,0.021884839655582338
+model,;; Jack is very strong for a beginner player.,80.0,0.14746093749999928,0.030033897857683508
+model,;; Jack is very strong for a beginner player.,90.0,0.14746093749999928,0.014935404047834798
+model,;; Jack is very strong for a beginner player.,100.0,0.14746093749999928,0.02727682848077358
+model,;; Jack is very strong for an intermediate player.,0.0,0.11230468749999921,4.5838055292534446e-08
+model,;; Jack is very strong for an intermediate player.,10.0,0.11230468749999921,1.4100909331625342e-05
+model,;; Jack is very strong for an intermediate player.,20.0,0.11230468749999921,9.130796835569396e-06
+model,;; Jack is very strong for an intermediate player.,30.0,0.11230468749999921,1.822057905746077e-05
+model,;; Jack is very strong for an intermediate player.,40.0,0.11230468749999921,0.0026895234010453047
+model,;; Jack is very strong for an intermediate player.,50.0,0.11230468749999921,0.42042362755999374
+model,;; Jack is very strong for an intermediate player.,60.0,0.11230468749999921,0.5103514990384049
+model,;; Jack is very strong for an intermediate player.,70.0,0.11230468749999921,0.036556404719217804
+model,;; Jack is very strong for an intermediate player.,80.0,0.11230468749999921,0.02553165966857303
+model,;; Jack is very strong for an intermediate player.,90.0,0.11230468749999921,0.003404037318818879
+model,;; Jack is very strong for an intermediate player.,100.0,0.11230468749999921,0.001001750170666404
+model,;; Jack is very strong for a professional player.,0.0,0.03525390624999914,3.002686992524522e-21
+model,;; Jack is very strong for a professional player.,10.0,0.03525390624999914,2.75383194065301e-16
+model,;; Jack is very strong for a professional player.,20.0,0.03525390624999914,2.8741722445633002e-18
+model,;; Jack is very strong for a professional player.,30.0,0.03525390624999914,2.6207959493287586e-16
+model,;; Jack is very strong for a professional player.,40.0,0.03525390624999914,1.729605400112065e-15
+model,;; Jack is very strong for a professional player.,50.0,0.03525390624999914,2.3015488131558528e-08
+model,;; Jack is very strong for a professional player.,60.0,0.03525390624999914,0.0005598961379899664
+model,;; Jack is very strong for a professional player.,70.0,0.03525390624999914,0.01861927996812326
+model,;; Jack is very strong for a professional player.,80.0,0.03525390624999914,0.1065617261700895
+model,;; Jack is very strong for a professional player.,90.0,0.03525390624999914,0.8739435601989749
+model,;; Jack is very strong for a professional player.,100.0,0.03525390624999914,0.00031551450933192947
+human,;; Jack has at least average strength for a beginner player.,0.0,,0.0
+human,;; Jack has at least average strength for a beginner player.,10.0,,0.0
+human,;; Jack has at least average strength for a beginner player.,20.0,,0.16666666666666666
+human,;; Jack has at least average strength for a beginner player.,30.0,,0.8333333333333334
+human,;; Jack has at least average strength for a beginner player.,40.0,,0.0
+human,;; Jack has at least average strength for a beginner player.,50.0,,0.0
+human,;; Jack has at least average strength for a beginner player.,60.0,,0.0
+human,;; Jack has at least average strength for a beginner player.,70.0,,0.0
+human,;; Jack has at least average strength for a beginner player.,80.0,,0.0
+human,;; Jack has at least average strength for a beginner player.,90.0,,0.0
+human,;; Jack has at least average strength for a beginner player.,100.0,,0.0
+human,;; Jack has at least average strength for a professional player.,0.0,,0.0
+human,;; Jack has at least average strength for a professional player.,10.0,,0.0
+human,;; Jack has at least average strength for a professional player.,20.0,,0.0
+human,;; Jack has at least average strength for a professional player.,30.0,,0.0
+human,;; Jack has at least average strength for a professional player.,40.0,,0.03333333333333333
+human,;; Jack has at least average strength for a professional player.,50.0,,0.03333333333333333
+human,;; Jack has at least average strength for a professional player.,60.0,,0.16666666666666666
+human,;; Jack has at least average strength for a professional player.,70.0,,0.7666666666666667
+human,;; Jack has at least average strength for a professional player.,80.0,,0.0
+human,;; Jack has at least average strength for a professional player.,90.0,,0.0
+human,;; Jack has at least average strength for a professional player.,100.0,,0.0
+human,;; Jack has at least average strength for an intermediate player.,0.0,,0.0
+human,;; Jack has at least average strength for an intermediate player.,10.0,,0.0
+human,;; Jack has at least average strength for an intermediate player.,20.0,,0.0
+human,;; Jack has at least average strength for an intermediate player.,30.0,,0.0
+human,;; Jack has at least average strength for an intermediate player.,40.0,,0.2
+human,;; Jack has at least average strength for an intermediate player.,50.0,,0.8
+human,;; Jack has at least average strength for an intermediate player.,60.0,,0.0
+human,;; Jack has at least average strength for an intermediate player.,70.0,,0.0
+human,;; Jack has at least average strength for an intermediate player.,80.0,,0.0
+human,;; Jack has at least average strength for an intermediate player.,90.0,,0.0
+human,;; Jack has at least average strength for an intermediate player.,100.0,,0.0
+human,;; Jack is very strong for a beginner player.,0.0,,0.0
+human,;; Jack is very strong for a beginner player.,10.0,,0.03333333333333333
+human,;; Jack is very strong for a beginner player.,20.0,,0.06666666666666667
+human,;; Jack is very strong for a beginner player.,30.0,,0.0
+human,;; Jack is very strong for a beginner player.,40.0,,0.7333333333333333
+human,;; Jack is very strong for a beginner player.,50.0,,0.16666666666666666
+human,;; Jack is very strong for a beginner player.,60.0,,0.0
+human,;; Jack is very strong for a beginner player.,70.0,,0.0
+human,;; Jack is very strong for a beginner player.,80.0,,0.0
+human,;; Jack is very strong for a beginner player.,90.0,,0.0
+human,;; Jack is very strong for a beginner player.,100.0,,0.0
+human,;; Jack is very strong for a professional player.,0.0,,0.0
+human,;; Jack is very strong for a professional player.,10.0,,0.0
+human,;; Jack is very strong for a professional player.,20.0,,0.0
+human,;; Jack is very strong for a professional player.,30.0,,0.0
+human,;; Jack is very strong for a professional player.,40.0,,0.0
+human,;; Jack is very strong for a professional player.,50.0,,0.0
+human,;; Jack is very strong for a professional player.,60.0,,0.03333333333333333
+human,;; Jack is very strong for a professional player.,70.0,,0.16666666666666666
+human,;; Jack is very strong for a professional player.,80.0,,0.3
+human,;; Jack is very strong for a professional player.,90.0,,0.43333333333333335
+human,;; Jack is very strong for a professional player.,100.0,,0.06666666666666667
+human,;; Jack is very strong for an intermediate player.,0.0,,0.0
+human,;; Jack is very strong for an intermediate player.,10.0,,0.0
+human,;; Jack is very strong for an intermediate player.,20.0,,0.0
+human,;; Jack is very strong for an intermediate player.,30.0,,0.0
+human,;; Jack is very strong for an intermediate player.,40.0,,0.06666666666666667
+human,;; Jack is very strong for an intermediate player.,50.0,,0.1
+human,;; Jack is very strong for an intermediate player.,60.0,,0.6
+human,;; Jack is very strong for an intermediate player.,70.0,,0.23333333333333334
+human,;; Jack is very strong for an intermediate player.,80.0,,0.0
+human,;; Jack is very strong for an intermediate player.,90.0,,0.0
+human,;; Jack is very strong for an intermediate player.,100.0,,0.0

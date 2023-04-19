@@ -1,0 +1,67 @@
+text,program,weights,score
+;; Jack has at least average strength for a novice player.,(condition (> (strength 'jack) 0)),-4.22279711272696,0.07427806325609398
+;; Jack has at least average strength for a novice player.,(condition (> (strength 'jack) 10)),-4.1725702158289995,0.07810410056372401
+;; Jack has at least average strength for a novice player.,(condition (> (strength 'jack) 20)),-3.899819018847115,0.1025954676147615
+;; Jack has at least average strength for a novice player.,(condition (> (strength 'jack) 30)),-3.3859626802757963,0.171511461458976
+;; Jack has at least average strength for a novice player.,(condition (> (strength 'jack) 40)),-3.69128945855389,0.12638380098799254
+;; Jack has at least average strength for a novice player.,(condition (> (strength 'jack) 50)),-3.6853618756486615,0.1271351761655154
+;; Jack has at least average strength for a novice player.,(condition (> (strength 'jack) 60)),-4.084915470645985,0.08525930882813915
+;; Jack has at least average strength for a novice player.,(condition (> (strength 'jack) 70)),-4.23764959629967,0.07318300186291087
+;; Jack has at least average strength for a novice player.,(condition (> (strength 'jack) 80)),-4.403473779167939,0.06200028588887613
+;; Jack has at least average strength for a novice player.,(condition (> (strength 'jack) 90)),-4.813375046323266,0.04115056795074479
+;; Jack has at least average strength for a novice player.,(condition (> (strength 'jack) 100)),-4.463318025732272,0.0583987654222658
+;; Jack has at least average strength for a mid-level player.,(condition (> (strength 'jack) 0)),-4.629724315296351,0.05704870594616117
+;; Jack has at least average strength for a mid-level player.,(condition (> (strength 'jack) 10)),-4.817244125295714,0.04729410147847878
+;; Jack has at least average strength for a mid-level player.,(condition (> (strength 'jack) 20)),-4.587889053432296,0.059485980034432596
+;; Jack has at least average strength for a mid-level player.,(condition (> (strength 'jack) 30)),-4.192094804317132,0.08837020843842341
+;; Jack has at least average strength for a mid-level player.,(condition (> (strength 'jack) 40)),-3.757907491073142,0.13641779755040145
+;; Jack has at least average strength for a mid-level player.,(condition (> (strength 'jack) 50)),-3.1984091833230903,0.238703101181321
+;; Jack has at least average strength for a mid-level player.,(condition (> (strength 'jack) 60)),-3.865495394654601,0.12250285231169895
+;; Jack has at least average strength for a mid-level player.,(condition (> (strength 'jack) 70)),-4.248826533241418,0.08349637145668516
+;; Jack has at least average strength for a mid-level player.,(condition (> (strength 'jack) 80)),-4.570110991844557,0.06055298196121843
+;; Jack has at least average strength for a mid-level player.,(condition (> (strength 'jack) 90)),-4.863466832378372,0.045157793395665426
+;; Jack has at least average strength for a mid-level player.,(condition (> (strength 'jack) 100)),-4.563246026040497,0.060970106245513606
+;; Jack has at least average strength for an expert player.,(condition (> (strength 'jack) 0)),-4.473575362369268,0.06225342079617051
+;; Jack has at least average strength for an expert player.,(condition (> (strength 'jack) 10)),-4.645320498585764,0.05242944443279852
+;; Jack has at least average strength for an expert player.,(condition (> (strength 'jack) 20)),-4.540103922511201,0.058246553670580556
+;; Jack has at least average strength for an expert player.,(condition (> (strength 'jack) 30)),-4.390536911063251,0.06764354535284313
+;; Jack has at least average strength for an expert player.,(condition (> (strength 'jack) 40)),-4.310655616583072,0.07326867997944096
+;; Jack has at least average strength for an expert player.,(condition (> (strength 'jack) 50)),-3.6586687384320182,0.14062828185489215
+;; Jack has at least average strength for an expert player.,(condition (> (strength 'jack) 60)),-3.7285182454130843,0.13114067517663336
+;; Jack has at least average strength for an expert player.,(condition (> (strength 'jack) 70)),-3.528674044835723,0.16015062904838004
+;; Jack has at least average strength for an expert player.,(condition (> (strength 'jack) 80)),-3.938554832764694,0.10629667611906138
+;; Jack has at least average strength for an expert player.,(condition (> (strength 'jack) 90)),-4.395211556236316,0.06732807371354008
+;; Jack has at least average strength for an expert player.,(condition (> (strength 'jack) 100)),-4.215116270748426,0.08061401985565925
+;; Jack is very strong for a novice player.,(condition (> (strength 'jack) 0)),-4.770593291354666,0.03504171846947176
+;; Jack is very strong for a novice player.,(condition (> (strength 'jack) 10)),-4.199583673273294,0.06202570686869386
+;; Jack is very strong for a novice player.,(condition (> (strength 'jack) 20)),-4.022698334567705,0.07402732373625603
+;; Jack is very strong for a novice player.,(condition (> (strength 'jack) 30)),-3.721121722554065,0.10008410442361823
+;; Jack is very strong for a novice player.,(condition (> (strength 'jack) 40)),-3.52208330922053,0.12212551044880257
+;; Jack is very strong for a novice player.,(condition (> (strength 'jack) 50)),-3.4962536292310595,0.12532106572377694
+;; Jack is very strong for a novice player.,(condition (> (strength 'jack) 60)),-3.6118468418715137,0.11164070877772488
+;; Jack is very strong for a novice player.,(condition (> (strength 'jack) 70)),-3.8286483690225146,0.08988078941583716
+;; Jack is very strong for a novice player.,(condition (> (strength 'jack) 80)),-3.7732123928563146,0.0950041149991059
+;; Jack is very strong for a novice player.,(condition (> (strength 'jack) 90)),-3.8273199031344887,0.09000027232547761
+;; Jack is very strong for a novice player.,(condition (> (strength 'jack) 100)),-3.7748497689998515,0.09484868481123501
+;; Jack is very strong for a mid-level player.,(condition (> (strength 'jack) 0)),-4.966606295781037,0.02933400901830607
+;; Jack is very strong for a mid-level player.,(condition (> (strength 'jack) 10)),-4.309569515560615,0.05658728653640206
+;; Jack is very strong for a mid-level player.,(condition (> (strength 'jack) 20)),-4.371563031016043,0.053185767109867305
+;; Jack is very strong for a mid-level player.,(condition (> (strength 'jack) 30)),-4.211190975333558,0.06243730171745166
+;; Jack is very strong for a mid-level player.,(condition (> (strength 'jack) 40)),-3.8068664525046803,0.09354919087233962
+;; Jack is very strong for a mid-level player.,(condition (> (strength 'jack) 50)),-3.362074781388392,0.14595218596093845
+;; Jack is very strong for a mid-level player.,(condition (> (strength 'jack) 60)),-3.2676466162840976,0.16040586181672617
+;; Jack is very strong for a mid-level player.,(condition (> (strength 'jack) 70)),-3.6409417082581355,0.11043334737437399
+;; Jack is very strong for a mid-level player.,(condition (> (strength 'jack) 80)),-3.5914743540879552,0.11603356491330641
+;; Jack is very strong for a mid-level player.,(condition (> (strength 'jack) 90)),-3.8632955533542557,0.08841647337571751
+;; Jack is very strong for a mid-level player.,(condition (> (strength 'jack) 100)),-3.9185329909772055,0.0836650113045709
+;; Jack is very strong for an expert player.,(condition (> (strength 'jack) 0)),-4.648335190533938,0.03318387261435502
+;; Jack is very strong for an expert player.,(condition (> (strength 'jack) 10)),-4.103930426624517,0.05719513013046985
+;; Jack is very strong for an expert player.,(condition (> (strength 'jack) 20)),-4.229804228287717,0.0504304397227876
+;; Jack is very strong for an expert player.,(condition (> (strength 'jack) 30)),-4.158176794412117,0.05417515396405849
+;; Jack is very strong for an expert player.,(condition (> (strength 'jack) 40)),-4.041130127175346,0.06090218524785699
+;; Jack is very strong for an expert player.,(condition (> (strength 'jack) 50)),-3.4914616543861965,0.10552390652943493
+;; Jack is very strong for an expert player.,(condition (> (strength 'jack) 60)),-3.261243689287826,0.13284134142645973
+;; Jack is very strong for an expert player.,(condition (> (strength 'jack) 70)),-3.3136904548230097,0.1260537910548409
+;; Jack is very strong for an expert player.,(condition (> (strength 'jack) 80)),-3.2573931690905096,0.13335383574631754
+;; Jack is very strong for an expert player.,(condition (> (strength 'jack) 90)),-3.2169319295189074,0.13886014204866298
+;; Jack is very strong for an expert player.,(condition (> (strength 'jack) 100)),-3.4730925251564413,0.10748020151475579

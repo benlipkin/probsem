@@ -1,0 +1,100 @@
+text,program,weights,score
+;; Jack is weak.,(condition (< (strength 'jack) 0)),-3.9260842750724576,0.04338740592667629
+;; Jack is weak.,(condition (< (strength 'jack) 10)),-3.454602751112727,0.06952252056111327
+;; Jack is weak.,(condition (< (strength 'jack) 20)),-3.2309790728673615,0.08694488526258728
+;; Jack is weak.,(condition (< (strength 'jack) 30)),-2.916146952671127,0.11911703954725456
+;; Jack is weak.,(condition (< (strength 'jack) 40)),-2.7368480583830737,0.14250903905506462
+;; Jack is weak.,(condition (< (strength 'jack) 50)),-2.55195540567121,0.1714510978776379
+;; Jack is weak.,(condition (< (strength 'jack) 60)),-2.8233404866240006,0.13070109537400584
+;; Jack is weak.,(condition (< (strength 'jack) 70)),-3.3801114954690155,0.07489910884908861
+;; Jack is weak.,(condition (< (strength 'jack) 80)),-3.6342676329023127,0.058089554052837
+;; Jack is weak.,(condition (< (strength 'jack) 90)),-4.036360326316305,0.0388571912144378
+;; Jack is weak.,(condition (< (strength 'jack) 100)),-3.5292617705827083,0.06452106227929692
+;; Jack is very weak.,(condition (< (strength 'jack) 0)),-3.598848894690047,0.05827525974322568
+;; Jack is very weak.,(condition (< (strength 'jack) 10)),-2.8006001829163973,0.12946704291478422
+;; Jack is very weak.,(condition (< (strength 'jack) 20)),-2.632664253036121,0.15314149282810122
+;; Jack is very weak.,(condition (< (strength 'jack) 30)),-2.588919778968454,0.15998927117538578
+;; Jack is very weak.,(condition (< (strength 'jack) 40)),-2.769856306240234,0.13350917880359772
+;; Jack is very weak.,(condition (< (strength 'jack) 50)),-2.9163137061496847,0.11532022578297245
+;; Jack is very weak.,(condition (< (strength 'jack) 60)),-3.2422921140182432,0.08324053450710447
+;; Jack is very weak.,(condition (< (strength 'jack) 70)),-3.707023241208937,0.05230036215366716
+;; Jack is very weak.,(condition (< (strength 'jack) 80)),-3.9755618470361003,0.039983412866118014
+;; Jack is very weak.,(condition (< (strength 'jack) 90)),-4.38980551924743,0.026422634693036087
+;; Jack is very weak.,(condition (< (strength 'jack) 100)),-3.785548225377082,0.04835058453200712
+;; Jack is somewhat weak.,(condition (< (strength 'jack) 0)),-4.372324214618076,0.029281437083569808
+;; Jack is somewhat weak.,(condition (< (strength 'jack) 10)),-4.104744434177499,0.03826491997994822
+;; Jack is somewhat weak.,(condition (< (strength 'jack) 20)),-3.80620364571627,0.051576922677372856
+;; Jack is somewhat weak.,(condition (< (strength 'jack) 30)),-3.3387851026142394,0.08231002252256972
+;; Jack is somewhat weak.,(condition (< (strength 'jack) 40)),-2.8771854020293532,0.13059390952718503
+;; Jack is somewhat weak.,(condition (< (strength 'jack) 50)),-2.592235309458411,0.17365015534410982
+;; Jack is somewhat weak.,(condition (< (strength 'jack) 60)),-2.567712899147398,0.17796111726210967
+;; Jack is somewhat weak.,(condition (< (strength 'jack) 70)),-3.0895790202305573,0.10560428657337685
+;; Jack is somewhat weak.,(condition (< (strength 'jack) 80)),-3.342714165914563,0.08198725573462498
+;; Jack is somewhat weak.,(condition (< (strength 'jack) 90)),-3.819679281406568,0.05088655289036435
+;; Jack is somewhat weak.,(condition (< (strength 'jack) 100)),-3.394064884779444,0.07788342040476877
+;; Jack is pretty weak.,(condition (< (strength 'jack) 0)),-3.9275544921120815,0.03978552020114134
+;; Jack is pretty weak.,(condition (< (strength 'jack) 10)),-3.2679910841066806,0.07694311942115649
+;; Jack is pretty weak.,(condition (< (strength 'jack) 20)),-2.972134984408533,0.10343284274705822
+;; Jack is pretty weak.,(condition (< (strength 'jack) 30)),-2.6567294942572057,0.1417872975307206
+;; Jack is pretty weak.,(condition (< (strength 'jack) 40)),-2.534254322175266,0.1602609143883506
+;; Jack is pretty weak.,(condition (< (strength 'jack) 50)),-2.5569651602223504,0.15666227346688172
+;; Jack is pretty weak.,(condition (< (strength 'jack) 60)),-2.8127418391294556,0.12130592796485086
+;; Jack is pretty weak.,(condition (< (strength 'jack) 70)),-3.415835582010482,0.06636845990176012
+;; Jack is pretty weak.,(condition (< (strength 'jack) 80)),-3.738305356706263,0.04807451329036124
+;; Jack is pretty weak.,(condition (< (strength 'jack) 90)),-4.19500123056672,0.030449095631432645
+;; Jack is pretty weak.,(condition (< (strength 'jack) 100)),-3.604997231328824,0.05493003545628612
+;; Jack has at most average strength.,(condition (< (strength 'jack) 0)),-5.232651883711858,0.02412261774526226
+;; Jack has at most average strength.,(condition (< (strength 'jack) 10)),-5.08544980523428,0.027948177018338398
+;; Jack has at most average strength.,(condition (< (strength 'jack) 20)),-5.065698704821208,0.02850567171244872
+;; Jack has at most average strength.,(condition (< (strength 'jack) 30)),-4.826985200182338,0.03619122114332152
+;; Jack has at most average strength.,(condition (< (strength 'jack) 40)),-4.346981470586,0.05848792420976529
+;; Jack has at most average strength.,(condition (< (strength 'jack) 50)),-2.395135497335395,0.411852914684355
+;; Jack has at most average strength.,(condition (< (strength 'jack) 60)),-3.4163650868104836,0.14832958046473219
+;; Jack has at most average strength.,(condition (< (strength 'jack) 70)),-3.940977721082348,0.08777915506963244
+;; Jack has at most average strength.,(condition (< (strength 'jack) 80)),-4.355784397776942,0.057975318795676765
+;; Jack has at most average strength.,(condition (< (strength 'jack) 90)),-4.880144822032574,0.03431755249121461
+;; Jack has at most average strength.,(condition (< (strength 'jack) 100)),-3.979170173700051,0.08448986666525271
+;; Jack is not strong.,(condition (< (strength 'jack) 0)),-4.679940854248704,0.02410621287517777
+;; Jack is not strong.,(condition (< (strength 'jack) 10)),-4.113588179574135,0.042471033446675244
+;; Jack is not strong.,(condition (< (strength 'jack) 20)),-3.984419955118396,0.04832700441563433
+;; Jack is not strong.,(condition (< (strength 'jack) 30)),-3.6986901090074475,0.06431033492851197
+;; Jack is not strong.,(condition (< (strength 'jack) 40)),-3.35251024820999,0.09091274578060367
+;; Jack is not strong.,(condition (< (strength 'jack) 50)),-2.6386848991165754,0.1856244521283824
+;; Jack is not strong.,(condition (< (strength 'jack) 60)),-2.7898167853895073,0.15958770916130405
+;; Jack is not strong.,(condition (< (strength 'jack) 70)),-3.159470870710325,0.11027084717362858
+;; Jack is not strong.,(condition (< (strength 'jack) 80)),-3.257061323309471,0.10001789638868179
+;; Jack is not strong.,(condition (< (strength 'jack) 90)),-3.605057949526476,0.07062276250684822
+;; Jack is not strong.,(condition (< (strength 'jack) 100)),-3.22043592514825,0.10374900119455194
+;; Jack is not so strong.,(condition (< (strength 'jack) 0)),-4.496499304252392,0.023394172422343644
+;; Jack is not so strong.,(condition (< (strength 'jack) 10)),-4.016519825720711,0.03780594737072457
+;; Jack is not so strong.,(condition (< (strength 'jack) 20)),-3.7599858422510866,0.04886202019457668
+;; Jack is not so strong.,(condition (< (strength 'jack) 30)),-3.268426541219554,0.07988273226645189
+;; Jack is not so strong.,(condition (< (strength 'jack) 40)),-2.822099460274724,0.12482175923036866
+;; Jack is not so strong.,(condition (< (strength 'jack) 50)),-2.5508951230014643,0.16370910957588874
+;; Jack is not so strong.,(condition (< (strength 'jack) 60)),-2.4724231701664343,0.1770731782641947
+;; Jack is not so strong.,(condition (< (strength 'jack) 70)),-2.9031435234283536,0.115104766926492
+;; Jack is not so strong.,(condition (< (strength 'jack) 80)),-3.1443769387633567,0.09043300633238781
+;; Jack is not so strong.,(condition (< (strength 'jack) 90)),-3.6257884671295724,0.05587951118074442
+;; Jack is not so strong.,(condition (< (strength 'jack) 100)),-3.229738545335762,0.08303379623582684
+;; Jack is not that strong.,(condition (< (strength 'jack) 0)),-4.330360596567872,0.02385028493930236
+;; Jack is not that strong.,(condition (< (strength 'jack) 10)),-3.8571526462513526,0.038282930374775606
+;; Jack is not that strong.,(condition (< (strength 'jack) 20)),-3.5590297416200736,0.05157963991602316
+;; Jack is not that strong.,(condition (< (strength 'jack) 30)),-3.084659024495846,0.08288861648395754
+;; Jack is not that strong.,(condition (< (strength 'jack) 40)),-2.6716286552301525,0.1252771027454278
+;; Jack is not that strong.,(condition (< (strength 'jack) 50)),-2.546894909275979,0.14191976343859827
+;; Jack is not that strong.,(condition (< (strength 'jack) 60)),-2.3775770184581653,0.1681034800588104
+;; Jack is not that strong.,(condition (< (strength 'jack) 70)),-2.7420673611368747,0.11675636343199858
+;; Jack is not that strong.,(condition (< (strength 'jack) 80)),-2.877890111937679,0.10192799667252557
+;; Jack is not that strong.,(condition (< (strength 'jack) 90)),-3.4006078230105214,0.060433823381255025
+;; Jack is not that strong.,(condition (< (strength 'jack) 100)),-3.013745151806988,0.08897999855732566
+;; Jack is not very strong.,(condition (< (strength 'jack) 0)),-4.018488886242635,0.029707395384587717
+;; Jack is not very strong.,(condition (< (strength 'jack) 10)),-3.416093835771777,0.054260204066857554
+;; Jack is not very strong.,(condition (< (strength 'jack) 20)),-3.0291683116118118,0.07989526522788239
+;; Jack is not very strong.,(condition (< (strength 'jack) 30)),-2.6774801985443517,0.11356833262921849
+;; Jack is not very strong.,(condition (< (strength 'jack) 40)),-2.4890877896158203,0.13711186346355522
+;; Jack is not very strong.,(condition (< (strength 'jack) 50)),-2.350813448779881,0.15744425437273799
+;; Jack is not very strong.,(condition (< (strength 'jack) 60)),-2.424805038843968,0.14621525204963762
+;; Jack is not very strong.,(condition (< (strength 'jack) 70)),-2.8765530644186534,0.09306813315430668
+;; Jack is not very strong.,(condition (< (strength 'jack) 80)),-3.124920999275512,0.07259992615110225
+;; Jack is not very strong.,(condition (< (strength 'jack) 90)),-3.5881599915536277,0.045682939465619334
+;; Jack is not very strong.,(condition (< (strength 'jack) 100)),-3.1550322838092457,0.07044643403449477

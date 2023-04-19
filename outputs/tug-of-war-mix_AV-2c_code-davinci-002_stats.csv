@@ -1,0 +1,7 @@
+text,js_distance,pval
+;; Jack has at least average strength for someone new to the game.,0.36837893238810143,0.0126
+;; Jack has at least average strength for someone with a bit of experience.,0.233590335261786,0.0004
+;; Jack has at least average strength for someone with many years of experience.,0.23047712945966642,0.0013
+;; Jack is very strong for someone new to the game.,0.49406176628782583,0.106
+;; Jack is very strong for someone with a bit of experience.,0.3552619712551247,0.0168
+;; Jack is very strong for someone with many years of experience.,0.2671670065266996,0.0013

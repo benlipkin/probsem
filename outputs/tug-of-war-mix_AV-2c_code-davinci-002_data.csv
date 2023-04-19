@@ -1,0 +1,133 @@
+source,text,theta,temperature,prob
+model,;; Jack has at least average strength for someone new to the game.,0.0,0.18447265624999928,0.005061727854531498
+model,;; Jack has at least average strength for someone new to the game.,10.0,0.18447265624999928,0.013437912147514655
+model,;; Jack has at least average strength for someone new to the game.,20.0,0.18447265624999928,0.044872156754272634
+model,;; Jack has at least average strength for someone new to the game.,30.0,0.18447265624999928,0.5421221676055964
+model,;; Jack has at least average strength for someone new to the game.,40.0,0.18447265624999928,0.14062363004329678
+model,;; Jack has at least average strength for someone new to the game.,50.0,0.18447265624999928,0.2393628171202242
+model,;; Jack has at least average strength for someone new to the game.,60.0,0.18447265624999928,0.008951960664229817
+model,;; Jack has at least average strength for someone new to the game.,70.0,0.18447265624999928,0.004231548254527208
+model,;; Jack has at least average strength for someone new to the game.,80.0,0.18447265624999928,0.0005222986829500861
+model,;; Jack has at least average strength for someone new to the game.,90.0,0.18447265624999928,8.245766788742606e-05
+model,;; Jack has at least average strength for someone new to the game.,100.0,0.18447265624999928,0.000731323204969289
+model,;; Jack has at least average strength for someone with a bit of experience.,0.0,0.14414062499999925,0.001648485851285788
+model,;; Jack has at least average strength for someone with a bit of experience.,10.0,0.14414062499999925,0.0007670388424798699
+model,;; Jack has at least average strength for someone with a bit of experience.,20.0,0.14414062499999925,0.005227887816502219
+model,;; Jack has at least average strength for someone with a bit of experience.,30.0,0.14414062499999925,0.04915919462232024
+model,;; Jack has at least average strength for someone with a bit of experience.,40.0,0.14414062499999925,0.15483689452907598
+model,;; Jack has at least average strength for someone with a bit of experience.,50.0,0.14414062499999925,0.7105333089411736
+model,;; Jack has at least average strength for someone with a bit of experience.,60.0,0.14414062499999925,0.06909144820629548
+model,;; Jack has at least average strength for someone with a bit of experience.,70.0,0.14414062499999925,0.007174221229870422
+model,;; Jack has at least average strength for someone with a bit of experience.,80.0,0.14414062499999925,0.0007323829709127759
+model,;; Jack has at least average strength for someone with a bit of experience.,90.0,0.14414062499999925,4.897699580563429e-05
+model,;; Jack has at least average strength for someone with a bit of experience.,100.0,0.14414062499999925,0.0007801599942779725
+model,;; Jack has at least average strength for someone with many years of experience.,0.0,0.1726562499999993,0.010029634890748538
+model,;; Jack has at least average strength for someone with many years of experience.,10.0,0.1726562499999993,0.004560963449211507
+model,;; Jack has at least average strength for someone with many years of experience.,20.0,0.1726562499999993,0.011281798038111657
+model,;; Jack has at least average strength for someone with many years of experience.,30.0,0.1726562499999993,0.03838558292978359
+model,;; Jack has at least average strength for someone with many years of experience.,40.0,0.1726562499999993,0.04482056299965959
+model,;; Jack has at least average strength for someone with many years of experience.,50.0,0.1726562499999993,0.3618422228384555
+model,;; Jack has at least average strength for someone with many years of experience.,60.0,0.1726562499999993,0.23891274488484437
+model,;; Jack has at least average strength for someone with many years of experience.,70.0,0.1726562499999993,0.24518694300832028
+model,;; Jack has at least average strength for someone with many years of experience.,80.0,0.1726562499999993,0.02484313581803747
+model,;; Jack has at least average strength for someone with many years of experience.,90.0,0.1726562499999993,0.002540979670161774
+model,;; Jack has at least average strength for someone with many years of experience.,100.0,0.1726562499999993,0.017595431472665648
+model,;; Jack is very strong for someone new to the game.,0.0,0.16582031249999923,0.0003981115226395852
+model,;; Jack is very strong for someone new to the game.,10.0,0.16582031249999923,0.004765710372089882
+model,;; Jack is very strong for someone new to the game.,20.0,0.16582031249999923,0.012710647733524974
+model,;; Jack is very strong for someone new to the game.,30.0,0.16582031249999923,0.05508272742513492
+model,;; Jack is very strong for someone new to the game.,40.0,0.16582031249999923,0.1535505439022347
+model,;; Jack is very strong for someone new to the game.,50.0,0.16582031249999923,0.35281203770656644
+model,;; Jack is very strong for someone new to the game.,60.0,0.16582031249999923,0.16643844336779512
+model,;; Jack is very strong for someone new to the game.,70.0,0.16582031249999923,0.05981673502029325
+model,;; Jack is very strong for someone new to the game.,80.0,0.16582031249999923,0.07531499650942941
+model,;; Jack is very strong for someone new to the game.,90.0,0.16582031249999923,0.04893492567268948
+model,;; Jack is very strong for someone new to the game.,100.0,0.16582031249999923,0.07017512076760231
+model,;; Jack is very strong for someone with a bit of experience.,0.0,0.15761718749999926,0.00011610667974365973
+model,;; Jack is very strong for someone with a bit of experience.,10.0,0.15761718749999926,0.0024569928683726553
+model,;; Jack is very strong for someone with a bit of experience.,20.0,0.15761718749999926,0.002337072372052401
+model,;; Jack is very strong for someone with a bit of experience.,30.0,0.15761718749999926,0.006033157033950665
+model,;; Jack is very strong for someone with a bit of experience.,40.0,0.15761718749999926,0.06518631935586289
+model,;; Jack is very strong for someone with a bit of experience.,50.0,0.15761718749999926,0.3441329221020951
+model,;; Jack is very strong for someone with a bit of experience.,60.0,0.15761718749999926,0.426020894025731
+model,;; Jack is very strong for someone with a bit of experience.,70.0,0.15761718749999926,0.06726440622772453
+model,;; Jack is very strong for someone with a bit of experience.,80.0,0.15761718749999926,0.0627680774623824
+model,;; Jack is very strong for someone with a bit of experience.,90.0,0.15761718749999926,0.014029914478744089
+model,;; Jack is very strong for someone with a bit of experience.,100.0,0.15761718749999926,0.009654137393340458
+model,;; Jack is very strong for someone with many years of experience.,0.0,0.17060546874999927,8.960759954480548e-05
+model,;; Jack is very strong for someone with many years of experience.,10.0,0.17060546874999927,0.0007296358871609551
+model,;; Jack is very strong for someone with many years of experience.,20.0,0.17060546874999927,0.0008447542611311947
+model,;; Jack is very strong for someone with many years of experience.,30.0,0.17060546874999927,0.002726929898077308
+model,;; Jack is very strong for someone with many years of experience.,40.0,0.17060546874999927,0.0073351582528858195
+model,;; Jack is very strong for someone with many years of experience.,50.0,0.17060546874999927,0.12822442734231843
+model,;; Jack is very strong for someone with many years of experience.,60.0,0.17060546874999927,0.3187172374019324
+model,;; Jack is very strong for someone with many years of experience.,70.0,0.17060546874999927,0.172481682379401
+model,;; Jack is very strong for someone with many years of experience.,80.0,0.17060546874999927,0.16672398973981445
+model,;; Jack is very strong for someone with many years of experience.,90.0,0.17060546874999927,0.11334524709656321
+model,;; Jack is very strong for someone with many years of experience.,100.0,0.17060546874999927,0.08878133014117034
+human,;; Jack has at least average strength for someone new to the game.,0.0,,0.0
+human,;; Jack has at least average strength for someone new to the game.,10.0,,0.0
+human,;; Jack has at least average strength for someone new to the game.,20.0,,0.06666666666666667
+human,;; Jack has at least average strength for someone new to the game.,30.0,,0.9
+human,;; Jack has at least average strength for someone new to the game.,40.0,,0.03333333333333333
+human,;; Jack has at least average strength for someone new to the game.,50.0,,0.0
+human,;; Jack has at least average strength for someone new to the game.,60.0,,0.0
+human,;; Jack has at least average strength for someone new to the game.,70.0,,0.0
+human,;; Jack has at least average strength for someone new to the game.,80.0,,0.0
+human,;; Jack has at least average strength for someone new to the game.,90.0,,0.0
+human,;; Jack has at least average strength for someone new to the game.,100.0,,0.0
+human,;; Jack has at least average strength for someone with a bit of experience.,0.0,,0.0
+human,;; Jack has at least average strength for someone with a bit of experience.,10.0,,0.0
+human,;; Jack has at least average strength for someone with a bit of experience.,20.0,,0.0
+human,;; Jack has at least average strength for someone with a bit of experience.,30.0,,0.23333333333333334
+human,;; Jack has at least average strength for someone with a bit of experience.,40.0,,0.2
+human,;; Jack has at least average strength for someone with a bit of experience.,50.0,,0.4666666666666667
+human,;; Jack has at least average strength for someone with a bit of experience.,60.0,,0.06666666666666667
+human,;; Jack has at least average strength for someone with a bit of experience.,70.0,,0.03333333333333333
+human,;; Jack has at least average strength for someone with a bit of experience.,80.0,,0.0
+human,;; Jack has at least average strength for someone with a bit of experience.,90.0,,0.0
+human,;; Jack has at least average strength for someone with a bit of experience.,100.0,,0.0
+human,;; Jack has at least average strength for someone with many years of experience.,0.0,,0.0
+human,;; Jack has at least average strength for someone with many years of experience.,10.0,,0.0
+human,;; Jack has at least average strength for someone with many years of experience.,20.0,,0.0
+human,;; Jack has at least average strength for someone with many years of experience.,30.0,,0.03333333333333333
+human,;; Jack has at least average strength for someone with many years of experience.,40.0,,0.03333333333333333
+human,;; Jack has at least average strength for someone with many years of experience.,50.0,,0.16666666666666666
+human,;; Jack has at least average strength for someone with many years of experience.,60.0,,0.26666666666666666
+human,;; Jack has at least average strength for someone with many years of experience.,70.0,,0.4666666666666667
+human,;; Jack has at least average strength for someone with many years of experience.,80.0,,0.03333333333333333
+human,;; Jack has at least average strength for someone with many years of experience.,90.0,,0.0
+human,;; Jack has at least average strength for someone with many years of experience.,100.0,,0.0
+human,;; Jack is very strong for someone new to the game.,0.0,,0.0
+human,;; Jack is very strong for someone new to the game.,10.0,,0.03333333333333333
+human,;; Jack is very strong for someone new to the game.,20.0,,0.06666666666666667
+human,;; Jack is very strong for someone new to the game.,30.0,,0.13333333333333333
+human,;; Jack is very strong for someone new to the game.,40.0,,0.5666666666666667
+human,;; Jack is very strong for someone new to the game.,50.0,,0.2
+human,;; Jack is very strong for someone new to the game.,60.0,,0.0
+human,;; Jack is very strong for someone new to the game.,70.0,,0.0
+human,;; Jack is very strong for someone new to the game.,80.0,,0.0
+human,;; Jack is very strong for someone new to the game.,90.0,,0.0
+human,;; Jack is very strong for someone new to the game.,100.0,,0.0
+human,;; Jack is very strong for someone with a bit of experience.,0.0,,0.0
+human,;; Jack is very strong for someone with a bit of experience.,10.0,,0.0
+human,;; Jack is very strong for someone with a bit of experience.,20.0,,0.0
+human,;; Jack is very strong for someone with a bit of experience.,30.0,,0.06666666666666667
+human,;; Jack is very strong for someone with a bit of experience.,40.0,,0.36666666666666664
+human,;; Jack is very strong for someone with a bit of experience.,50.0,,0.3
+human,;; Jack is very strong for someone with a bit of experience.,60.0,,0.2
+human,;; Jack is very strong for someone with a bit of experience.,70.0,,0.03333333333333333
+human,;; Jack is very strong for someone with a bit of experience.,80.0,,0.0
+human,;; Jack is very strong for someone with a bit of experience.,90.0,,0.03333333333333333
+human,;; Jack is very strong for someone with a bit of experience.,100.0,,0.0
+human,;; Jack is very strong for someone with many years of experience.,0.0,,0.0
+human,;; Jack is very strong for someone with many years of experience.,10.0,,0.0
+human,;; Jack is very strong for someone with many years of experience.,20.0,,0.0
+human,;; Jack is very strong for someone with many years of experience.,30.0,,0.0
+human,;; Jack is very strong for someone with many years of experience.,40.0,,0.0
+human,;; Jack is very strong for someone with many years of experience.,50.0,,0.06666666666666667
+human,;; Jack is very strong for someone with many years of experience.,60.0,,0.26666666666666666
+human,;; Jack is very strong for someone with many years of experience.,70.0,,0.1
+human,;; Jack is very strong for someone with many years of experience.,80.0,,0.3
+human,;; Jack is very strong for someone with many years of experience.,90.0,,0.26666666666666666
+human,;; Jack is very strong for someone with many years of experience.,100.0,,0.0
