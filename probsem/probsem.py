@@ -22,18 +22,22 @@ class ProbSem(Object):
         temp: float = 1.0,
         input_dir: str | pathlib.Path = "",
         output_dir: str | pathlib.Path = "",
+        cache_dir: str | pathlib.Path = "",
     ) -> None:
         super().__init__()
         if input_dir == "":
             input_dir = self._base / "inputs"
         if output_dir == "":
             output_dir = self._base / "outputs"
+        if cache_dir == "":
+            cache_dir = self._base / ".cache"
         self._input_dir = pathlib.Path(input_dir)
         self._output_dir = pathlib.Path(output_dir)
+        self._cache_dir = pathlib.Path(cache_dir)
         self._run_id = sanitize_filename(f"{prompt}_{test}_{model}")
         self._prompt = Prompt(prompt, self._input_dir)
         self._suite = TestSuite(prompt, test, self._input_dir)
-        self._model = Model(model, norm, temp)
+        self._model = Model(model, norm, temp, self._cache_dir)
 
     @property
     def _samples(self) -> typing.Iterable[typing.Dict[str, typing.Any]]:

@@ -16,6 +16,7 @@ class CLI(Object):
         self._parser.add_argument("--temp", default=1.0, type=float)
         self._parser.add_argument("--input_dir", default="")
         self._parser.add_argument("--output_dir", default="")
+        self._parser.add_argument("--cache_dir", default="")
 
     def run_main(self) -> None:
         start = datetime.datetime.now()

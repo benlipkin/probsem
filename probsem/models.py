@@ -1,9 +1,11 @@
 import functools
+import hashlib
 import pathlib
 import time
 import typing
 import warnings
 
+import diskcache
 import numpy as np
 import openai
 import torch
@@ -16,7 +18,9 @@ openai.api_key_path = str(pathlib.Path.home() / ".openai_api_key")
 
 
 class Model(Object):
-    def __init__(self, model_id: str, norm: bool, temp: float) -> None:
+    def __init__(
+        self, model_id: str, norm: bool, temp: float, cache_dir: pathlib.Path
+    ) -> None:
         super().__init__()
         self._id = model_id
         self._norm = norm
@@ -31,13 +35,20 @@ class Model(Object):
         else:
             self.info("Model ID not found in OpenAI engines. Checking HuggingFace.")
             setattr(self, "_model", HuggingFaceModel(self._id))
+        self._cache = diskcache.Cache(cache_dir)
 
     def score(
         self,
         full_text: str,
         eval_text: str,
     ) -> np.float64:
-        logp, num_eval = self._model.score(full_text, eval_text)
+        key_id = "_".join([self._id, full_text, eval_text])
+        key = hashlib.sha256(key_id.encode("utf-8")).hexdigest()
+        if key in self._cache:
+            logp, num_eval = self._cache[key]
+        else:
+            logp, num_eval = self._model.score(full_text, eval_text)
+            self._cache[key] = logp, num_eval
         if self._norm:
             logp /= num_eval
         return logp / self._temp
