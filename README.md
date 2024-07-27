@@ -2,6 +2,10 @@
 
 # ProbSem
 
+## Deprecation Notice
+
+⚠️ This project is functional, but is no longer being actively maintained. I recommend using [minicons](https://github.com/kanishkamisra/minicons) for most LLM scoring needs. If you'd like to replicate any paper results using probsem, the paper branches are still supported.
+
 ## Summary
 
 This repository provides a framework to leverage large language models (LLMs) to assign context-conditional probability distributions over queried strings, with default support for all OpenAI engines and HuggingFace CausalLM models.
